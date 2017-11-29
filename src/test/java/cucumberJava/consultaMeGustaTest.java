@@ -31,8 +31,9 @@ public class consultaMeGustaTest {
 		publiDao.insert(publicacion);
 	}
 
-	@When("^Activacion correcta la consulta$")
-	public void Activacion_correcta_la_consulta() {
+	
+	@When("^\"([^\"]*)\" Activacion correcta la consulta$")
+	public void Activacion_correcta_la_consulta(String arg1) {
 		aux=publiDao.selectOne(publicacion);
 		
 		publiDao.megusta(aux.getId(), usuario);
@@ -41,7 +42,6 @@ public class consultaMeGustaTest {
 		
 		ArrayList<String> datos = publiDao.usuariosMeGusta(aux);
 		System.out.println(datos);
-		
 	}
 
 	@Then("^Se muestra correctamente lo usuarios que han dado me gusta$")

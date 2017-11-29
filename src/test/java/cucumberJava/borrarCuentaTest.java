@@ -33,10 +33,10 @@ public class borrarCuentaTest {
 			assertFalse(true);
 		}
 	}
-
-	@When("^Datos correctos$")
-	public void Datos_correctos() {
-
+	
+	@When("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" correctos$")
+	public void correctos(String arg1, String arg2, String arg3, String arg4) {
+	    
 	}
 
 	@Then("^Borrar cuenta y cambiar publicaciones de propietario$")
@@ -52,9 +52,9 @@ public class borrarCuentaTest {
 		assertTrue(publicacionDao.existe(publicacion));
 	}
 	
-	@When("^Datos incorrectos$")
-	public void Datos_incorrectos() {
-	    usuario=null;
+	@When("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" incorrectos$")
+	public void incorrectos(String arg1, String arg2, String arg3, String arg4) {
+		 usuario=null;
 	}
 
 	@Then("^No se borra cuenta$")
