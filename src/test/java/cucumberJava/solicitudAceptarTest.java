@@ -26,9 +26,11 @@ public class solicitudAceptarTest {
 			assertFalse(true);
 		}
 	}
-	@When("^Acepta solicitud de alguien que le ha mandado$")
-	public void Acepta_solicitud_de_alguien_que_le_ha_mandado() {
-		acepta=new Usuario("acepta.acepta", "1234qwer", "acepta@alu.uclm.es", "acepta");
+	
+	
+	@When("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" Acepta solicitud de alguien que le ha mandado$")
+	public void Acepta_solicitud_de_alguien_que_le_ha_mandado(String nombre, String pwd, String email, String respuesta) {
+		acepta=new Usuario(nombre, pwd, email, respuesta);
 		if(usuarioDao.selectNombre(acepta))usuarioDao.delete(acepta);
 		try {
 			usuarioDao.insert(acepta);
@@ -41,6 +43,8 @@ public class solicitudAceptarTest {
 		assertTrue(utilidades.comprobarSolicitudes(solicitante, acepta));
 		usuarioDao.aceptarSolicitud(solicitante, acepta);
 	}
+
+	
 	@Then("^Aceptar como amigo$")
 	public void Aceptar_como_amigo() {
 		assertTrue(utilidades.comprobarAmistad(solicitante, acepta));
@@ -50,9 +54,9 @@ public class solicitudAceptarTest {
 	}
 	
 	
-	@When("^Acepta solicitud de alguien que no le ha mandado$")
-	public void Acepta_solicitud_de_alguien_que_no_le_ha_mandado() {
-		acepta2=new Usuario("acepta2.acepta2", "1234qwer", "acepta2@alu.uclm.es", "acepta2");
+	@When("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" Acepta solicitud de alguien que no le ha mandado$")
+	public void Acepta_solicitud_de_alguien_que_no_le_ha_mandado(String nombre, String pwd, String email, String respuesta) {
+		acepta2=new Usuario(nombre, pwd, email, respuesta);
 		if(usuarioDao.selectNombre(acepta2))usuarioDao.delete(acepta2);
 		try {
 			usuarioDao.insert(acepta2);

@@ -28,10 +28,12 @@ public class solicitudEnviarTest {
 		}
 	}
 
-	@When("^Selecciona otro usuario sin ser amigos ni tener solicitudes entre ellos$")
-	public void Selecciona_otro_usuario_sin_ser_amigos_ni_tener_solicitudes_entre_ellos() {
+	
+	
+	@When("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" Selecciona otro usuario sin ser amigos ni tener solicitudes entre ellos$")
+	public void Selecciona_otro_usuario_sin_ser_amigos_ni_tener_solicitudes_entre_ellos(String nombre, String pwd, String email, String respuesta) {
 		solicitante=new Usuario("solicitante.solicitante");
-		solicitado=new Usuario("solicitado.solicitado", "1234qwer", "solicitado@alu.uclm.es", "solicitado");
+		solicitado=new Usuario(nombre, pwd, email, respuesta);
 		try {
 			if(usuarioDao.selectNombre(solicitado))usuarioDao.delete(solicitado);
 			usuarioDao.insert(solicitado);
@@ -39,6 +41,9 @@ public class solicitudEnviarTest {
 			assertFalse(true);
 		}
 	}
+
+	
+
 
 	@Then("^Envio solicitud al segundo$")
 	public void Envio_solicitud_al_segundo() {
@@ -52,10 +57,12 @@ public class solicitudEnviarTest {
 		usuarioDao.delete(solicitado);
 	}
 
-	@When("^Selecciona a otro usuario siendo su amigo$")
-	public void Selecciona_a_otro_usuario_siendo_su_amigo() {
+	
+	
+	@When("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" Selecciona a otro usuario siendo su amigo$")
+	public void Selecciona_a_otro_usuario_siendo_su_amigo(String nombre, String pwd, String email, String respuesta) {
 		solicitante=new Usuario("solicitante.solicitante");
-		solicitado2=new Usuario("solicitado2.solicitado2", "1234qwer", "solicitado2@alu.uclm.es", "solicitado2");
+		solicitado2=new Usuario(nombre, pwd, email, respuesta);
 		try {
 			if(usuarioDao.selectNombre(solicitado2))usuarioDao.delete(solicitado2);
 			usuarioDao.insert(solicitado2);
@@ -66,6 +73,7 @@ public class solicitudEnviarTest {
 		}
 	}
 
+	
 	@Then("^No envio de solicitud$")
 	public void No_envio_de_solicitud() {
 		try {
@@ -77,10 +85,12 @@ public class solicitudEnviarTest {
 	    usuarioDao.delete(solicitado2);
 	}
 
-	@When("^Selecciona a otro usuario teniendo solicitudes pendientes entre ellos$")
-	public void Selecciona_a_otro_usuario_teniendo_solicitudes_pendientes_entre_ellos() {
+	
+	
+	@When("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" Selecciona a otro usuario teniendo solicitudes pendientes entre ellos$")
+	public void Selecciona_a_otro_usuario_teniendo_solicitudes_pendientes_entre_ellos(String nombre, String pwd, String email, String respuesta) {
 		solicitante=new Usuario("solicitante.solicitante");
-		solicitado3=new Usuario("solicitado3.solicitado3", "1234qwer", "solicitado3@alu.uclm.es", "solicitado3");
+		solicitado3=new Usuario(nombre, pwd, email, respuesta);
 		try {
 			if(usuarioDao.selectNombre(solicitado3))usuarioDao.delete(solicitado3);
 			usuarioDao.insert(solicitado3);
@@ -89,6 +99,7 @@ public class solicitudEnviarTest {
 			assertFalse(true);
 		}
 	}
+
 
 	@Then("^Solicitud ya enviada$")
 	public void Solicitud_ya_enviada() {

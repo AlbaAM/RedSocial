@@ -1,15 +1,22 @@
 Feature: eliminar publicacion DB
 
 @Scenario1
-Scenario: Eliminacion correcta de publicacion
+Scenario Outline: Eliminacion correcta de publicacion
 	Given Usuario quiere eliminar una publiacion
-	When Eliminacion correcta
+	When <nombre> Eliminacion correcta
 	Then Mensaje de exito en la eliminacion de publicacion
 
-
+	Examples:
+	| nombre             |
+	| "milhouse.milhouse"|
+	
 #nuevo test incluido en la fase de mantenimiento
 @Scenario2
-Scenario: Eliminacion incorrecta de publicacion
+Scenario Outline: Eliminacion incorrecta de publicacion
 	Given Usuario quiere eliminar una publiacion
-	When Eliminacion incorrecta
+	When <nombre> Eliminacion incorrecta
 	Then Mensaje de fallo en la eliminacion de publicacion
+	
+	Examples:
+	| nombre             |
+	| "milhouse.milhouse"|

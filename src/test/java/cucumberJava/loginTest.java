@@ -15,8 +15,7 @@ import cucumber.annotation.en.When;
 public class loginTest {
 	private Usuario usuario;
 	private Administrador administrador;
-	private String nombre;
-	private String pwd;
+	
 	UsuarioDAOImpl usuarioDao= new UsuarioDAOImpl();
 	AdministradorDAOImpl administradorDao= new AdministradorDAOImpl();
 	
@@ -26,10 +25,10 @@ public class loginTest {
 		administrador=new Administrador();
 	}
 
-	@When("^Credenciales correctas$")
-	public void Credenciales_correctas() {
-		nombre="milhouse.milhouse";
-		pwd="1234milhouse";
+	
+	@When("^\"([^\"]*)\" y \"([^\"]*)\" correctas$")
+	public void y_correctas(String nombre, String pwd) {
+		System.out.println(nombre + pwd);
 		usuario.setNombre(nombre);
 		usuario.setClave(pwd);
 		
@@ -42,27 +41,28 @@ public class loginTest {
 		assertTrue(usuarioDao.login(usuario) || administradorDao.login(administrador));
 	}
 
-	@When("^Nombre de usuario incorrecto$")
-	public void Nombre_de_usuario_incorrecto() {
-		nombre="noexiste";
-		pwd="1234";
-		usuario.setNombre(nombre);
-		usuario.setClave(pwd);
-		
-		administrador.setNombre(nombre);
-		administrador.setClave(pwd);
-	}
 	
-	@When("^Password incorrecta$")
-	public void Contrase_a_incorrecta() {
-		nombre="milhouse.milhouse";
-		pwd="12345";
+	@When("^\"([^\"]*)\" incorrecto y \"([^\"]*)\" correcta$")
+	public void incorrecto_y_correcta(String nombre, String pwd) {
+		System.out.println(nombre + pwd);
 		usuario.setNombre(nombre);
 		usuario.setClave(pwd);
 		
 		administrador.setNombre(nombre);
 		administrador.setClave(pwd);
 	}
+
+	@When("^\"([^\"]*)\" incorrecta y \"([^\"]*)\" correcto$")
+	public void incorrecta_y_correcto(String nombre, String pwd) {
+		System.out.println(nombre + pwd);
+		usuario.setNombre(nombre);
+		usuario.setClave(pwd);
+		
+		administrador.setNombre(nombre);
+		administrador.setClave(pwd);
+	}
+
+	
 	@Then("^Mensaje de error al login$")
 	public void Mensaje_de_error_al_login() {
 		assertFalse(usuarioDao.login(usuario) && administradorDao.login(administrador));

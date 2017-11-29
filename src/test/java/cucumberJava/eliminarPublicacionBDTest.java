@@ -26,27 +26,30 @@ public class eliminarPublicacionBDTest {
 		publiDao.insert(publi);
 	}
 
-	@When("^Eliminacion correcta$")
-	public void Eliminacion_correcta() {  
+	
+	@When("^\"([^\"]*)\" Eliminacion correcta$")
+	public void Eliminacion_correcta(String arg1) {
 		assertTrue(publiDao.existe(publi));
 	    aux=publiDao.selectOne(publi);
 	    publiDao.remove(aux.getId());
 	}
+
 
 	@Then("^Mensaje de exito en la eliminacion de publicacion$")
 	public void Mensaje_de_exito_en_la_eliminacion_de_publicacion() {
 		assertFalse(publiDao.existe(aux));
 	}
 	
-
-	@When("^Eliminacion incorrecta$")
-	public void Eliminacion_incorrecta() {
+	
+	@When("^\"([^\"]*)\" Eliminacion incorrecta$")
+	public void Eliminacion_incorrecta(String arg1) {
 		assertTrue(publiDao.existe(publi));
 	    aux=publiDao.selectOne(publi);
 	}
 
 	@Then("^Mensaje de fallo en la eliminacion de publicacion$")
 	public void Mensaje_de_fallo_en_la_eliminacion_de_publicacion() {
-		assertFalse(!publiDao.existe(aux));
+		aux=publiDao.selectOne(publi);
+		assertTrue(aux.getId()!=null);
 	}
 }

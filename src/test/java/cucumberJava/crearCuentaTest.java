@@ -26,13 +26,10 @@ public class crearCuentaTest {
 		usuario=new Usuario();
 	}
 
-	@When("^Nombre, email, password y confirmacion validos$")
-	public void Nombre_email_contrase_a_y_confirmacion_validos() {
-		nombre="fernando.cozar";
-		email="fernando@alu.uclm.es";
-		pwd1="1234Fernando";
-		pwd2="1234Fernando";
-		respuesta="fer";
+
+	
+	@When("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" validos$")
+	public void validos(String nombre, String email, String pwd1, String pwd2, String respuesta) {
 		try {
 			utilidades.credencialesValidas(nombre, email, pwd1, pwd2, respuesta);
 		}catch(Exception e){
@@ -45,6 +42,8 @@ public class crearCuentaTest {
 		usuario.setRespuesta(respuesta);
 	}
 
+	
+
 	@Then("^Mensaje de validacion y usuario insertado$")
 	public void Mensaje_de_validacion_y_usuario_insertado() {
 			if(usuarioDao.selectNombre(usuario))usuarioDao.delete(usuario);
@@ -55,39 +54,10 @@ public class crearCuentaTest {
 		}
 	}
 
-	@When("^Email no tiene extension alu.uclm.es$")
-	public void Email_no_tiene_extension_alu_uclm_es() {
-		nombre="fernando.cozar";
-		email="fernando@alu.uclm.ese";
-		pwd1="1234";
-		pwd2="1234";
-	}
 
-
-	@When("^Password y su confirmacion no coinciden$")
-	public void Contrase_a_y_su_confirmacion_no_coinciden() {
-		nombre="fernando.cozar";
-		email="fernando@alu.uclm.es";
-		pwd1="1234";
-		pwd2="12345";
-	}
-	@When("^Nombre no tiene el formato adecuado$")
-	public void Nombre_no_tiene_el_formato_adecuado() {
-		nombre="fernandocozar";
-		email="fernando@alu.uclm.es";
-		pwd1="1234";
-		pwd2="1234";
-	}
-	@When("^Password no tiene la seguridad adecuada$")
-	public void Password_no_tiene_la_seguridad_adecuada() {
-		nombre="fernando.cozar";
-		email="fernando@alu.uclm.es";
-		pwd1="1234";
-		pwd2="1234";
-		respuesta="fer";
-	}
-	@Then("^Mensaje de error a la creacion email invaildo$")
-	public void Mensaje_de_error_a_la_creacion_email_invaildo() {
+	
+	@When("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" Email no tiene extension alu.uclm.es$")
+	public void Email_no_tiene_extension_alu_uclm_es(String nombre, String email, String pwd1, String pwd2) {
 		try {
 			utilidades.credencialesValidas(nombre, email, pwd1, pwd2, respuesta);
 			assertTrue(false);
@@ -96,8 +66,8 @@ public class crearCuentaTest {
 		}
 	}
 
-	@Then("^Mensaje de error a la creacion password no coinciden$")
-	public void Mensaje_de_error_a_la_creacion_password_no_coinciden() {
+	@When("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" Password y su confirmacion no coinciden$")
+	public void Password_y_su_confirmacion_no_coinciden(String nombre, String email, String pwd1, String pwd2) {
 		try {
 			utilidades.credencialesValidas(nombre, email, pwd1, pwd2, respuesta);
 			assertTrue(false);
@@ -106,8 +76,8 @@ public class crearCuentaTest {
 		}
 	}
 
-	@Then("^Mensaje de error a la creacion nombre invalido$")
-	public void Mensaje_de_error_a_la_creacion_nombre_invalido() {
+	@When("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" Nombre no tiene el formato adecuado$")
+	public void Nombre_no_tiene_el_formato_adecuado(String nombre, String email, String pwd1, String pwd2) {
 		try {
 			utilidades.credencialesValidas(nombre, email, pwd1, pwd2, respuesta);
 			assertTrue(false);
@@ -116,10 +86,8 @@ public class crearCuentaTest {
 		}
 	}
 
-
-
-	@Then("^Mensaje de error a la creacion password poco segura$")
-	public void Mensaje_de_error_a_la_creacion_password_poco_segura() {
+	@When("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" Password no tiene la seguridad adecuada$")
+	public void Password_no_tiene_la_seguridad_adecuada(String nombre, String email, String pwd1, String pwd2) {
 		try {
 			utilidades.credencialesValidas(nombre, email, pwd1, pwd2, respuesta);
 			assertTrue(false);
@@ -127,12 +95,33 @@ public class crearCuentaTest {
 			assertEquals(e.getMessage(), "Password poco segura (minimo 8 caracteres, con numeros y letras)");
 		}
 	}
-	@When("^Nombre que intenta registrar ya existe$")
-	public void Nombre_que_intenta_registrar_ya_existe() {
-		nombre="milhouse.milhouse";
-		email="milhouse@alu.uclm.es";
-		pwd1="1234milhouse";
-		pwd2="1234milhouse";
+
+	
+	@Then("^Mensaje de error a la creacion email invaildo$")
+	public void Mensaje_de_error_a_la_creacion_email_invaildo() {
+		assertTrue(true);
+	}
+
+	@Then("^Mensaje de error a la creacion password no coinciden$")
+	public void Mensaje_de_error_a_la_creacion_password_no_coinciden() {
+		assertTrue(true);
+	}
+
+	@Then("^Mensaje de error a la creacion nombre invalido$")
+	public void Mensaje_de_error_a_la_creacion_nombre_invalido() {
+		assertTrue(true);
+	}
+
+
+
+	@Then("^Mensaje de error a la creacion password poco segura$")
+	public void Mensaje_de_error_a_la_creacion_password_poco_segura() {
+		assertTrue(true);
+	}
+
+	
+	@When("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" Nombre que intenta registrar ya existe$")
+	public void Nombre_que_intenta_registrar_ya_existe(String nombre, String email, String pwd1, String pwd2) {
 		try {
 			utilidades.credencialesValidas(nombre, email, pwd1, pwd2, respuesta);
 		}catch(Exception e){
