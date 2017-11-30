@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <%-- JSP para el registro de un usuario en la red social --%>
 <html>
 <head>
@@ -8,12 +8,18 @@
 		<title>Registro - Intravita</title>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 		<!-- jQuery library -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+		
+		<!-- jQuery CDN -->
+		<script  src = " http://code.jquery.com/jquery-1.10.1.min.js " > </script>
+		
 		<!-- Latest compiled JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+			
 		<link rel="shortcut icon" href="https://thumb.ibb.co/h7RMiR/Intra_Vita_Favicon.png" type="image/x-icon">
 		<link rel="icon" href="/favicon.ico" type="image/x-icon">
 
@@ -57,13 +63,27 @@
 		font-weight: bold;
 		font-size: 15px;
 	}
+</style>
 
+<style>
+/
+* Estilos para la forma * /
+		forma {
+	max-width: 400 px;
+	margen: 0 auto;
+}
+
+.formEmail {
+	border-radius: 4 px 4 px 0 0;
+}
+
+.formPassword {
+	border-radius: 0 0 4 px 4 px;
+	margin-top: -1 px;
+}
 </style>
 		
 </head>
-
-
-
 
 <body>
 
@@ -117,34 +137,41 @@
 	</div>
 
 
-	<form action="registrar" method="POST" enctype="multipart/form-data"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<form action="registrar" method="POST" enctype="multipart/form-data">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
-				<label for="usr" style="color:white; font-size:15px;">Usuario:</label>
-				<input type="text" class="form-control" id="usr" name="txtUsuarioNombre" placeholder="usuario" value=<%=request.getAttribute("usuarioRegistro")%>>
+				<label for="usr" style="color: white; font-size: 15px;">Usuario:</label>
+				<input type="text" class="form-control" id="usr"
+					name="txtUsuarioNombre" placeholder="usuario"
+					value=<%=request.getAttribute("usuarioRegistro")%>>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
-				<label for="email" style="color:white; font-size:15px">Email:</label>
-				<input type="text" class="form-control" id="email" name="txtEmail" placeholder="@uclm.es | @alu.uclm.es" value=<%=request.getAttribute("emailRegistro")%>>
+				<label for="email" style="color: white; font-size: 15px">Email:</label>
+				<input type="text" class="form-control" id="email" name="txtEmail"
+					placeholder="@uclm.es | @alu.uclm.es"
+					value=<%=request.getAttribute("emailRegistro")%>>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
-				<label for="pwd" style="color:white; font-size:15px">Contraseña:</label>
-		  		<input type="password" class="form-control" id="pwd" name="txtUsuarioClave" placeholder="password">
+				<label for="pwd" style="color: white; font-size: 15px">Contraseña:</label>
+				<input type="password" class="form-control" id="pwd"
+					name="txtUsuarioClave" placeholder="password">
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
-			  	<label for="pwd1" style="color:white; font-size:15px">Confirmar Contraseña:</label>
-			  	<input type="password" class="form-control" id="pwd1" name="txtUsuarioClave1" placeholder="confirmacion password">	
+				<label for="pwd1" style="color: white; font-size: 15px">Confirmar
+					Contraseña:</label> <input type="password" class="form-control" id="pwd1"
+					name="txtUsuarioClave1" placeholder="confirmacion password">
 			</div>
 		</div>
 		
-		<%--Script fotos DANI --%>
-		<script type="text/javascript" src="./cargarImagenes.js"></script>
+	<%--Script fotos DANI --%>
+		<!-- <script type="text/javascript" src="./cargarImagenes.js"></script>-->
 		
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
@@ -161,45 +188,49 @@
 			<%--Fotos Dani --%>
 			<input id="input-b5" name="fichero" type="file" onchange="cargarArchivo(this)">
 			<input type="hidden" name="nombreImagen" value=""/>
-			
-			
+			<br><br>
 			<script>
-				$(document).on('ready', function() {
+				/*$(document).on('ready', function() {
 				    $("#input-b5").fileinput({showCaption: false});
-				});
+				});*/
 			</script>
 			
 			<br>
-			<img src="input-b5" width="128px" height="128px" class="img-circle">
 			
 			<%--Foto DANI --%>
 			<iframe name="cosa" style="display: none;"></iframe>
 			
 			
 			</div>
-		
+			<div class="col-md-6 col-md-offset-3">
+				<div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6Lde_DoUAAAAAJFdrIN8t1d_Jk_OMmDw6lj7fQx2"></div>
+			</div>
+
+<Br>
 		</div>
 		<%--By JA --%>
 		<% String alertaRegistro = (String)session.getAttribute("alertaRegistro");
 			if (alertaRegistro != null) { %>
 				<script>
 				alert ("Se ha registrado corectamente.");
-				window.location = "https://intravitawebapp.herokuapp.com/irLogin";
-				<%--window.location = "http://localhost:8080/IntraVita/irLogin"; (Si estas en local usa esta linea)--%>
+				//window.location = "https://intravitawebapp.herokuapp.com/irLogin";
+				window.location = "http://localhost:8080/IntraVita/irLogin";
 				</script>	
 		<% 		session.setAttribute("alertaRegistro", null);
 			}%>
-		
+				
 		<div class="row">
 			<div class="col-md-2 col-md-offset-5">
-				<center>
-					<button type="submit" class="boton login" value="Registrar"><strong><span class="glyphicon glyphicon-ok-circle"></span> &nbsp;Registrar</strong></button>	
-				</center>
+
+					<br/>
+					<button id="btn-register" type="submit" disabled class="boton login"><strong><span class="glyphicon glyphicon-ok-circle"></span> &nbsp;Registrar</strong></button>	
+					<br>
+					<br>
 			</div>
 		
 			<div class="col-md-3">
 				<br/>
-				<t><spam><em>${alerta}</em></spam></t>
+				<span><em>${alerta}</em></span>
 				<br>
 				<br>
 				<br>
@@ -216,5 +247,10 @@
 	</div>
 
 </body>
-
+	<script>
+	
+	function recaptchaCallback(){
+		$('#btn-register').prop('disabled','');
+	}
+	</script>
 </html>
