@@ -26,16 +26,31 @@ public class editarPublicacionBDTest {
 		publiDao.insert(publicacion);
 	}
 
-	@When("^Edicion correcta$")
-	public void Edicion_correcta() {
+	
+	@When("^\"([^\"]*)\" Edicion correcta$")
+	public void Edicion_correcta(String arg1) {
 		aux=publiDao.selectOne(publicacion);
 		assertTrue(aux.getTexto().equals("Texto a editar"));
 		
 	    publiDao.update(aux.getId(),"Texto EDICION MODIFICADO");   
 	}
 
+	
+
 	@Then("^Mensaje de exito en la edicion de la publicacion$")
 	public void Mensaje_de_exito_en_la_edicion_de_la_publicacion() {
 		assertTrue(publiDao.selectOne(aux).getTexto().equals("Texto EDICION MODIFICADO"));
 	}
+	
+	
+	@When("^\"([^\"]*)\" Edicion incorrecto$")
+	public void Edicion_incorrecto(String arg1) {
+		aux=publiDao.selectOne(publicacion);
+	}
+
+	@Then("^Mensaje de error en la edicion de la publicacion$")
+	public void Mensaje_de_error_en_la_edicion_de_la_publicacion() {
+		assertTrue(aux.getTexto().equals("Texto a editar"));
+	}
+
 }

@@ -37,13 +37,16 @@ public class compartirPublicacionesTest {
 		}
 	}
 
-	@When("^No esta compartida por el usuario$")
-	public void No_esta_compartida_por_el_usuario() {
+	
+	@When("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" No esta compartida por el usuario$")
+	public void No_esta_compartida_por_el_usuario(String arg1, String arg2, String arg3, String arg4) {
 		nocompartida=new Publicacion(publicador, "Para compartir");
 		publiDao.insert(nocompartida);
 		nocompartida=publiDao.selectOne(nocompartida);
 		assertFalse(publiDao.obtenerCompartidos(nocompartida).contains(new BsonString(compartir.getNombre())));
 	}
+
+	
 
 	@Then("^Compartir publicacion$")
 	public void Compartir_publicacion() {
@@ -57,8 +60,9 @@ public class compartirPublicacionesTest {
 		usuarioDao.delete(publicador);
 	}
 
-	@When("^Esta compartida por el usuario$")
-	public void Esta_compartida_por_el_usuario() {
+	
+	@When("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" Esta compartida por el usuario$")
+	public void Esta_compartida_por_el_usuario(String arg1, String arg2, String arg3, String arg4) {
 		compartida=new Publicacion(publicador, "Para compartir 2");
 		publiDao.insert(compartida);
 		compartida=publiDao.selectOne(compartida);
@@ -69,6 +73,7 @@ public class compartirPublicacionesTest {
 		}
 		assertTrue(publiDao.obtenerCompartidos(compartida).contains(new BsonString(compartir.getNombre())));
 	}
+
 
 	@Then("^No compartir publicacion$")
 	public void No_compartir_publicacion() {

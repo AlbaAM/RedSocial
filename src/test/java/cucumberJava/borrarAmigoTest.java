@@ -27,7 +27,7 @@ public class borrarAmigoTest {
 		}
 	}
 
-	@When("^Eliminar un usuario que es tu amigo$")
+	/*@When("^Eliminar un usuario que es tu amigo$")
 	public void Eliminar_un_usuario_que_es_tu_amigo() {
 		borrador=new Usuario("borrador.borrador");
 		borrado1=new Usuario("borrado1.borrado1", "1234qwer", "borrado1@alu.uclm.es", "borrado1");
@@ -39,7 +39,23 @@ public class borrarAmigoTest {
 		} catch (Exception e) {
 			assertFalse(true);
 		}
+	}*/
+	
+	@When("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" Eliminar un usuario que es tu amigo$")
+	public void Eliminar_un_usuario_que_es_tu_amigo(String nombre, String pwd, String email, String respuesta) {
+		borrador=new Usuario("borrador.borrador");
+		borrado1=new Usuario(nombre, pwd, email, respuesta);
+		if(usuarioDao.selectNombre(borrado1)) usuarioDao.delete(borrado1);
+		try {		
+			usuarioDao.insert(borrado1);
+			utilidades.enviarSolicitud(borrador, borrado1);
+			utilidades.aceptarSolicitud(borrador, borrado1);
+		} catch (Exception e) {
+			assertFalse(true);
+		}
 	}
+
+	
 
 	@Then("^Borrar amigo de ambos usuarios$")
 	public void Borrar_amigo_de_ambos_usuarios() {
@@ -53,10 +69,22 @@ public class borrarAmigoTest {
 		usuarioDao.delete(borrado1);
 	}
 
-	@When("^Eliminar un usuario que no es tu amigo$")
+	/*@When("^Eliminar un usuario que no es tu amigo$")
 	public void Eliminar_un_usuario_que_no_es_tu_amigo() {
 		borrador=new Usuario("borrador.borrador");
 		borrado2=new Usuario("borrado2.borrado2", "1234qwer", "borrado2@alu.uclm.es", "borrado2");
+		if(usuarioDao.selectNombre(borrado2))usuarioDao.delete(borrado2);
+		try {		
+			usuarioDao.insert(borrado2);
+		} catch (Exception e) {
+			assertFalse(true);
+		}
+	}*/
+	
+	@When("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" Eliminar un usuario que no es tu amigo$")
+	public void Eliminar_un_usuario_que_no_es_tu_amigo(String nombre, String pwd, String email, String respuesta) {
+		borrador=new Usuario("borrador.borrador");
+		borrado2=new Usuario(nombre, pwd, email, respuesta);
 		if(usuarioDao.selectNombre(borrado2))usuarioDao.delete(borrado2);
 		try {		
 			usuarioDao.insert(borrado2);

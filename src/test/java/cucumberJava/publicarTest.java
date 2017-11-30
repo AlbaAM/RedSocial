@@ -20,14 +20,28 @@ public class publicarTest {
 		usuario=new Usuario("milhouse.milhouse");
 	}
 
-	@When("^Publicacion correcta$")
-	public void Publicacion_correcta() {
+	
+	@When("^\"([^\"]*)\" Publicacion correcta$")
+	public void Publicacion_correcta(String arg1) {
 		publicacion = new Publicacion(usuario, "Texto a publicar");
 		publiDao.insert(publicacion);
 	}
 
+	
 	@Then("^Mensaje de exito a la publicacion$")
 	public void Mensaje_de_exito_a_la_publicacion() {
 		assertTrue(publiDao.existe(publicacion));
+	}
+	
+	
+	@When("^\"([^\"]*)\" Publicacion incorrecta$")
+	public void Publicacion_incorrecta(String arg1) {
+		publicacion = new Publicacion(usuario, "");
+	}
+	
+	
+	@Then("^Mensaje de fallo a la publicacion$")
+	public void Mensaje_de_fallo_a_la_publicacion() {
+	    assertTrue(!publiDao.existe(publicacion));
 	}
 }

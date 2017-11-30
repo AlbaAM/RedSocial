@@ -27,9 +27,11 @@ public class solicitudRechazarTest {
 		}
 	}
 
-	@When("^Rechazar solicitud de alguien que le ha mandado$")
-	public void Rechazar_solicitud_de_alguien_que_le_ha_mandado() {
-		rechaza=new Usuario("rechaza.rechaza", "1234qwer", "rechaza@alu.uclm.es", "rechaza");
+	
+	
+	@When("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" Rechazar solicitud de alguien que le ha mandado$")
+	public void Rechazar_solicitud_de_alguien_que_le_ha_mandado(String nombre, String pwd, String email, String respuesta) {
+		rechaza=new Usuario(nombre, pwd, email, respuesta);
 		if(usuarioDao.selectNombre(rechaza)) usuarioDao.delete(rechaza);
 		try {
 			usuarioDao.insert(rechaza);
@@ -44,8 +46,9 @@ public class solicitudRechazarTest {
 		} catch (Exception e) {
 			assertFalse(true);
 		}
-		
 	}
+
+	
 
 	@Then("^Rechazar peticion de amistad$")
 	public void Rechazar_peticion_de_amistad() {
@@ -55,9 +58,11 @@ public class solicitudRechazarTest {
 		usuarioDao.delete(rechaza);
 	}
 
-	@When("^Rechazar solicitud de alguien que no le ha mandado$")
-	public void Rechazar_solicitud_de_alguien_que_no_le_ha_mandado() {
-		rechaza2=new Usuario("rechaza2.rechaza2", "1234qwer", "rechaza2@alu.uclm.es", "rechaza2");
+	
+	
+	@When("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" Rechazar solicitud de alguien que no le ha mandado$")
+	public void Rechazar_solicitud_de_alguien_que_no_le_ha_mandado(String nombre, String pwd, String email, String respuesta) {
+		rechaza2=new Usuario(nombre, pwd, email, respuesta);
 		if(usuarioDao.selectNombre(rechaza2)) usuarioDao.delete(rechaza2);
 		try {
 			usuarioDao.insert(rechaza2);
@@ -65,8 +70,8 @@ public class solicitudRechazarTest {
 			assertFalse(true);
 		}
 		solicitante=new Usuario("solicitante.solicitante");
-		
 	}
+
 
 	@Then("^Mensaje de error al rechazo de la peticion$")
 	public void Mensaje_de_error_al_rechazo_de_la_peticion() {
