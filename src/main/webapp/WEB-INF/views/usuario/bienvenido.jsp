@@ -82,6 +82,18 @@ textarea {
 	
 </head>
 <body>
+	
+	<%
+   // Create cookies for first and last names.      
+   Cookie cookie = new Cookie("web", "intravita");
+   
+   // Set expiry date after 60 seconds for both the cookies
+   cookie.setMaxAge(60); 
+   
+   // Add both the cookies in the response header.
+   response.addCookie(cookie);
+%>
+
  	<jsp:useBean id="usuarioConectado" scope="session" class="com.intravita.proyectointranet.modelo.Usuario"></jsp:useBean>
  
  	<!--  
