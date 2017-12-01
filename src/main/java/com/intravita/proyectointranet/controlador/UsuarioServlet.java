@@ -1,5 +1,6 @@
 package com.intravita.proyectointranet.controlador;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.xml.bind.DatatypeConverter;
@@ -260,6 +261,7 @@ public class UsuarioServlet {
 			usuario = usuarioDao.selectNombreImagen(nombre);
 			request.getSession().setAttribute(usuario_conect, usuario);
 			String base64Encoded = DatatypeConverter.printBase64Binary(usuario.getImagen());
+			
 			model.addAttribute("imagen", base64Encoded);
 			listarPublicacion(request, model);
 			return cadenaUrl += welcome;
