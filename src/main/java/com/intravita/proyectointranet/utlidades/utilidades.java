@@ -207,8 +207,25 @@ public class utilidades {
 		}
 		return false;
 	}
-
 	
+	
+	/**
+	 * 
+	 * @param receptor
+	 * @return
+	 */
+	public static String contarSolicitudes(Usuario receptor) {
+		List<BsonValue> solicitudesReceptor = usuarioDao.obtenerSolicitudes(receptor);
+		Iterator<BsonValue> it = solicitudesReceptor.iterator();
+		BsonValue aux;
+		int valor = 0;
+		while (it.hasNext()) {
+			aux=it.next();
+			valor=valor+1;
+		}
+		return String.valueOf(valor);
+	}
+
 	
 	/**
 	 * 
