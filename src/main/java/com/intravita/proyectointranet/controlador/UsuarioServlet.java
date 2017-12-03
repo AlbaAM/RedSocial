@@ -999,7 +999,8 @@ public class UsuarioServlet {
 		model.addAttribute("imagen", base64Encoded);
 		/*se añade a ${imagen} en la vista bienvenido.jsp*/
 		model.addAttribute("publicaciones", texto);
-
+		Usuario usu = (Usuario) request.getSession().getAttribute(usuario_conect);
+		model.addAttribute("todoSolicitudes", usuarioDao.obtenerSolicitudes(usu).size());
 		cadenaUrl+=welcome;  
 		return cadenaUrl;
 
@@ -1183,7 +1184,8 @@ public class UsuarioServlet {
 		}
 		
 		model.addAttribute("publicaciones", texto);
-		
+		Usuario usu = (Usuario) request.getSession().getAttribute(usuario_conect);
+		model.addAttribute("todoSolicitudes", usuarioDao.obtenerSolicitudes(usu).size());
 		cadenaUrl+=welcome;  
 		return cadenaUrl;
 	}
