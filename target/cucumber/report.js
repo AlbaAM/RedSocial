@@ -45,7 +45,7 @@ formatter.match({
   "location": "borrarCuentaTest.Usuario_conectado_quiere_borrar_su_cuenta()"
 });
 formatter.result({
-  "duration": 9085681583,
+  "duration": 7075789792,
   "status": "passed"
 });
 formatter.match({
@@ -70,14 +70,14 @@ formatter.match({
   "location": "borrarCuentaTest.correctos(String,String,String,String)"
 });
 formatter.result({
-  "duration": 4098109,
+  "duration": 4997292,
   "status": "passed"
 });
 formatter.match({
   "location": "borrarCuentaTest.Borrar_cuenta_y_cambiar_publicaciones_de_propietario()"
 });
 formatter.result({
-  "duration": 5203759457,
+  "duration": 4362939784,
   "status": "passed"
 });
 formatter.scenario({
@@ -119,7 +119,7 @@ formatter.match({
   "location": "borrarCuentaTest.Usuario_conectado_quiere_borrar_su_cuenta()"
 });
 formatter.result({
-  "duration": 407406076,
+  "duration": 185049310,
   "status": "passed"
 });
 formatter.match({
@@ -144,614 +144,14 @@ formatter.match({
   "location": "borrarCuentaTest.incorrectos(String,String,String,String)"
 });
 formatter.result({
-  "duration": 69465,
+  "duration": 82865,
   "status": "passed"
 });
 formatter.match({
   "location": "borrarCuentaTest.No_se_borra_cuenta()"
 });
 formatter.result({
-  "duration": 15868,
-  "status": "passed"
-});
-formatter.uri('cucumberJava\CompartirPublicacion.feature');
-formatter.feature({
-  "line": 1,
-  "name": "Compartir publicaciones",
-  "description": "",
-  "id": "compartir-publicaciones",
-  "keyword": "Feature"
-});
-formatter.scenario({
-  "line": 11,
-  "name": "Compartir correctamente una publicacion",
-  "description": "",
-  "id": "compartir-publicaciones;compartir-correctamente-una-publicacion;;2",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 3,
-      "name": "@Scenario1"
-    }
-  ]
-});
-formatter.step({
-  "line": 5,
-  "name": "Usuario conectado quiere compartir una publicacion",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 6,
-  "name": "\"compartir.compartir\" \"1234qwer\" \"compartir@alu.uclm.es\" \"compartir\" No esta compartida por el usuario",
-  "matchedColumns": [
-    0,
-    1,
-    2,
-    3
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 7,
-  "name": "Compartir publicacion",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "compartirPublicacionesTest.Usuario_conectado_quiere_compartir_una_publicacion()"
-});
-formatter.result({
-  "duration": 812956330,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "compartir.compartir",
-      "offset": 1
-    },
-    {
-      "val": "1234qwer",
-      "offset": 23
-    },
-    {
-      "val": "compartir@alu.uclm.es",
-      "offset": 34
-    },
-    {
-      "val": "compartir",
-      "offset": 58
-    }
-  ],
-  "location": "compartirPublicacionesTest.No_esta_compartida_por_el_usuario(String,String,String,String)"
-});
-formatter.result({
-  "duration": 300050213,
-  "status": "passed"
-});
-formatter.match({
-  "location": "compartirPublicacionesTest.Compartir_publicacion()"
-});
-formatter.result({
-  "duration": 11468091732,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 12,
-  "name": "Compartir correctamente una publicacion",
-  "description": "",
-  "id": "compartir-publicaciones;compartir-correctamente-una-publicacion;;3",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 3,
-      "name": "@Scenario1"
-    }
-  ]
-});
-formatter.step({
-  "line": 5,
-  "name": "Usuario conectado quiere compartir una publicacion",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 6,
-  "name": "\"publicador.publicador\" \"1234qwer\" \"publicador@alu.uclm.es\" \"publicador\" No esta compartida por el usuario",
-  "matchedColumns": [
-    0,
-    1,
-    2,
-    3
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 7,
-  "name": "Compartir publicacion",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "compartirPublicacionesTest.Usuario_conectado_quiere_compartir_una_publicacion()"
-});
-formatter.result({
-  "duration": 911793330,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "publicador.publicador",
-      "offset": 1
-    },
-    {
-      "val": "1234qwer",
-      "offset": 25
-    },
-    {
-      "val": "publicador@alu.uclm.es",
-      "offset": 36
-    },
-    {
-      "val": "publicador",
-      "offset": 61
-    }
-  ],
-  "location": "compartirPublicacionesTest.No_esta_compartida_por_el_usuario(String,String,String,String)"
-});
-formatter.result({
-  "duration": 302336931,
-  "status": "passed"
-});
-formatter.match({
-  "location": "compartirPublicacionesTest.Compartir_publicacion()"
-});
-formatter.result({
-  "duration": 11770929730,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 22,
-  "name": "Compartir erroneamente una publicacion",
-  "description": "",
-  "id": "compartir-publicaciones;compartir-erroneamente-una-publicacion;;2",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 14,
-      "name": "@Scenario1"
-    }
-  ]
-});
-formatter.step({
-  "line": 16,
-  "name": "Usuario conectado quiere compartir una publicacion",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 17,
-  "name": "\"compartir.compartir\" \"1234qwer\" \"compartir@alu.uclm.es\" \"compartir\" Esta compartida por el usuario",
-  "matchedColumns": [
-    0,
-    1,
-    2,
-    3
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 18,
-  "name": "No compartir publicacion",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "compartirPublicacionesTest.Usuario_conectado_quiere_compartir_una_publicacion()"
-});
-formatter.result({
-  "duration": 812673532,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "compartir.compartir",
-      "offset": 1
-    },
-    {
-      "val": "1234qwer",
-      "offset": 23
-    },
-    {
-      "val": "compartir@alu.uclm.es",
-      "offset": 34
-    },
-    {
-      "val": "compartir",
-      "offset": 58
-    }
-  ],
-  "location": "compartirPublicacionesTest.Esta_compartida_por_el_usuario(String,String,String,String)"
-});
-formatter.result({
-  "duration": 813132991,
-  "status": "passed"
-});
-formatter.match({
-  "location": "compartirPublicacionesTest.No_compartir_publicacion()"
-});
-formatter.result({
-  "duration": 11369502973,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 23,
-  "name": "Compartir erroneamente una publicacion",
-  "description": "",
-  "id": "compartir-publicaciones;compartir-erroneamente-una-publicacion;;3",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 14,
-      "name": "@Scenario1"
-    }
-  ]
-});
-formatter.step({
-  "line": 16,
-  "name": "Usuario conectado quiere compartir una publicacion",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 17,
-  "name": "\"publicador.publicador\" \"1234qwer\" \"publicador@alu.uclm.es\" \"publicador\" Esta compartida por el usuario",
-  "matchedColumns": [
-    0,
-    1,
-    2,
-    3
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 18,
-  "name": "No compartir publicacion",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "compartirPublicacionesTest.Usuario_conectado_quiere_compartir_una_publicacion()"
-});
-formatter.result({
-  "duration": 805568309,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "publicador.publicador",
-      "offset": 1
-    },
-    {
-      "val": "1234qwer",
-      "offset": 25
-    },
-    {
-      "val": "publicador@alu.uclm.es",
-      "offset": 36
-    },
-    {
-      "val": "publicador",
-      "offset": 61
-    }
-  ],
-  "location": "compartirPublicacionesTest.Esta_compartida_por_el_usuario(String,String,String,String)"
-});
-formatter.result({
-  "duration": 712917966,
-  "status": "passed"
-});
-formatter.match({
-  "location": "compartirPublicacionesTest.No_compartir_publicacion()"
-});
-formatter.result({
-  "duration": 11567093403,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 33,
-  "name": "Dejar de compartir una publicacion",
-  "description": "",
-  "id": "compartir-publicaciones;dejar-de-compartir-una-publicacion;;2",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 25,
-      "name": "@Scenario1"
-    }
-  ]
-});
-formatter.step({
-  "line": 27,
-  "name": "Usuario conectado quiere dejar de compartir una publicacion",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 28,
-  "name": "\"compartir.compartir\" \"1234qwer\" \"compartir@alu.uclm.es\" \"compartir\" Esta compartida por el usuario",
-  "matchedColumns": [
-    0,
-    1,
-    2,
-    3
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 29,
-  "name": "Dejar de compartir publicacion",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "compartirPublicacionesTest.Usuario_conectado_quiere_dejar_de_compartir_una_publicacion()"
-});
-formatter.result({
-  "duration": 812609355,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "compartir.compartir",
-      "offset": 1
-    },
-    {
-      "val": "1234qwer",
-      "offset": 23
-    },
-    {
-      "val": "compartir@alu.uclm.es",
-      "offset": 34
-    },
-    {
-      "val": "compartir",
-      "offset": 58
-    }
-  ],
-  "location": "compartirPublicacionesTest.Esta_compartida_por_el_usuario(String,String,String,String)"
-});
-formatter.result({
-  "duration": 1018563497,
-  "status": "passed"
-});
-formatter.match({
-  "location": "compartirPublicacionesTest.Dejar_de_compartir_publicacion()"
-});
-formatter.result({
-  "duration": 13311587120,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 34,
-  "name": "Dejar de compartir una publicacion",
-  "description": "",
-  "id": "compartir-publicaciones;dejar-de-compartir-una-publicacion;;3",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 25,
-      "name": "@Scenario1"
-    }
-  ]
-});
-formatter.step({
-  "line": 27,
-  "name": "Usuario conectado quiere dejar de compartir una publicacion",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 28,
-  "name": "\"publicador.publicador\" \"1234qwer\" \"publicador@alu.uclm.es\" \"publicador\" Esta compartida por el usuario",
-  "matchedColumns": [
-    0,
-    1,
-    2,
-    3
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 29,
-  "name": "Dejar de compartir publicacion",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "compartirPublicacionesTest.Usuario_conectado_quiere_dejar_de_compartir_una_publicacion()"
-});
-formatter.result({
-  "duration": 911498190,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "publicador.publicador",
-      "offset": 1
-    },
-    {
-      "val": "1234qwer",
-      "offset": 25
-    },
-    {
-      "val": "publicador@alu.uclm.es",
-      "offset": 36
-    },
-    {
-      "val": "publicador",
-      "offset": 61
-    }
-  ],
-  "location": "compartirPublicacionesTest.Esta_compartida_por_el_usuario(String,String,String,String)"
-});
-formatter.result({
-  "duration": 666083791,
-  "status": "passed"
-});
-formatter.match({
-  "location": "compartirPublicacionesTest.Dejar_de_compartir_publicacion()"
-});
-formatter.result({
-  "duration": 12025412367,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 44,
-  "name": "Dejar de compartir una publicacion erroneamente",
-  "description": "",
-  "id": "compartir-publicaciones;dejar-de-compartir-una-publicacion-erroneamente;;2",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 36,
-      "name": "@Scenario1"
-    }
-  ]
-});
-formatter.step({
-  "line": 38,
-  "name": "Usuario conectado quiere dejar de compartir una publicacion",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 39,
-  "name": "\"compartir.compartir\" \"1234qwer\" \"compartir@alu.uclm.es\" \"compartir\" No esta compartida por el usuario",
-  "matchedColumns": [
-    0,
-    1,
-    2,
-    3
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 40,
-  "name": "No dejar de compartir publicacion",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "compartirPublicacionesTest.Usuario_conectado_quiere_dejar_de_compartir_una_publicacion()"
-});
-formatter.result({
-  "duration": 812575504,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "compartir.compartir",
-      "offset": 1
-    },
-    {
-      "val": "1234qwer",
-      "offset": 23
-    },
-    {
-      "val": "compartir@alu.uclm.es",
-      "offset": 34
-    },
-    {
-      "val": "compartir",
-      "offset": 58
-    }
-  ],
-  "location": "compartirPublicacionesTest.No_esta_compartida_por_el_usuario(String,String,String,String)"
-});
-formatter.result({
-  "duration": 303911011,
-  "status": "passed"
-});
-formatter.match({
-  "location": "compartirPublicacionesTest.No_dejar_de_compartir_publicacion()"
-});
-formatter.result({
-  "duration": 12285547095,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 45,
-  "name": "Dejar de compartir una publicacion erroneamente",
-  "description": "",
-  "id": "compartir-publicaciones;dejar-de-compartir-una-publicacion-erroneamente;;3",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 36,
-      "name": "@Scenario1"
-    }
-  ]
-});
-formatter.step({
-  "line": 38,
-  "name": "Usuario conectado quiere dejar de compartir una publicacion",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 39,
-  "name": "\"publicador.publicador\" \"1234qwer\" \"publicador@alu.uclm.es\" \"publicador\" No esta compartida por el usuario",
-  "matchedColumns": [
-    0,
-    1,
-    2,
-    3
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 40,
-  "name": "No dejar de compartir publicacion",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "compartirPublicacionesTest.Usuario_conectado_quiere_dejar_de_compartir_una_publicacion()"
-});
-formatter.result({
-  "duration": 812087483,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "publicador.publicador",
-      "offset": 1
-    },
-    {
-      "val": "1234qwer",
-      "offset": 25
-    },
-    {
-      "val": "publicador@alu.uclm.es",
-      "offset": 36
-    },
-    {
-      "val": "publicador",
-      "offset": 61
-    }
-  ],
-  "location": "compartirPublicacionesTest.No_esta_compartida_por_el_usuario(String,String,String,String)"
-});
-formatter.result({
-  "duration": 303510438,
-  "status": "passed"
-});
-formatter.match({
-  "location": "compartirPublicacionesTest.No_dejar_de_compartir_publicacion()"
-});
-formatter.result({
-  "duration": 11261439056,
+  "duration": 35614,
   "status": "passed"
 });
 formatter.uri('cucumberJava\CreacionUsuario.feature');
@@ -802,7 +202,7 @@ formatter.match({
   "location": "crearCuentaTest.Usuario_en_pagina_de_creacion()"
 });
 formatter.result({
-  "duration": 18251431,
+  "duration": 4377390,
   "status": "passed"
 });
 formatter.match({
@@ -831,14 +231,14 @@ formatter.match({
   "location": "crearCuentaTest.validos(String,String,String,String,String)"
 });
 formatter.result({
-  "duration": 838522,
+  "duration": 399516,
   "status": "passed"
 });
 formatter.match({
   "location": "crearCuentaTest.Mensaje_de_validacion_y_usuario_insertado()"
 });
 formatter.result({
-  "duration": 5598161387,
+  "duration": 4306896207,
   "status": "passed"
 });
 formatter.scenario({
@@ -880,7 +280,7 @@ formatter.match({
   "location": "crearCuentaTest.Usuario_en_pagina_de_creacion()"
 });
 formatter.result({
-  "duration": 83570,
+  "duration": 84628,
   "status": "passed"
 });
 formatter.match({
@@ -905,14 +305,14 @@ formatter.match({
   "location": "crearCuentaTest.Email_no_tiene_extension_alu_uclm_es(String,String,String,String)"
 });
 formatter.result({
-  "duration": 443944,
+  "duration": 457697,
   "status": "passed"
 });
 formatter.match({
   "location": "crearCuentaTest.Mensaje_de_error_a_la_creacion_email_invaildo()"
 });
 formatter.result({
-  "duration": 94853,
+  "duration": 83570,
   "status": "passed"
 });
 formatter.scenario({
@@ -954,7 +354,7 @@ formatter.match({
   "location": "crearCuentaTest.Usuario_en_pagina_de_creacion()"
 });
 formatter.result({
-  "duration": 64881,
+  "duration": 70171,
   "status": "passed"
 });
 formatter.match({
@@ -979,14 +379,14 @@ formatter.match({
   "location": "crearCuentaTest.Password_y_su_confirmacion_no_coinciden(String,String,String,String)"
 });
 formatter.result({
-  "duration": 307482,
+  "duration": 148452,
   "status": "passed"
 });
 formatter.match({
   "location": "crearCuentaTest.Mensaje_de_error_a_la_creacion_password_no_coinciden()"
 });
 formatter.result({
-  "duration": 80397,
+  "duration": 39846,
   "status": "passed"
 });
 formatter.scenario({
@@ -1028,7 +428,7 @@ formatter.match({
   "location": "crearCuentaTest.Usuario_en_pagina_de_creacion()"
 });
 formatter.result({
-  "duration": 69113,
+  "duration": 33146,
   "status": "passed"
 });
 formatter.match({
@@ -1053,14 +453,14 @@ formatter.match({
   "location": "crearCuentaTest.Nombre_no_tiene_el_formato_adecuado(String,String,String,String)"
 });
 formatter.result({
-  "duration": 282445,
+  "duration": 130821,
   "status": "passed"
 });
 formatter.match({
   "location": "crearCuentaTest.Mensaje_de_error_a_la_creacion_nombre_invalido()"
 });
 formatter.result({
-  "duration": 81455,
+  "duration": 41608,
   "status": "passed"
 });
 formatter.scenario({
@@ -1102,7 +502,7 @@ formatter.match({
   "location": "crearCuentaTest.Usuario_en_pagina_de_creacion()"
 });
 formatter.result({
-  "duration": 39493,
+  "duration": 60297,
   "status": "passed"
 });
 formatter.match({
@@ -1127,14 +527,14 @@ formatter.match({
   "location": "crearCuentaTest.Password_no_tiene_la_seguridad_adecuada(String,String,String,String)"
 });
 formatter.result({
-  "duration": 186181,
+  "duration": 191471,
   "status": "passed"
 });
 formatter.match({
   "location": "crearCuentaTest.Mensaje_de_error_a_la_creacion_password_poco_segura()"
 });
 formatter.result({
-  "duration": 60650,
+  "duration": 40198,
   "status": "passed"
 });
 formatter.scenario({
@@ -1176,7 +576,7 @@ formatter.match({
   "location": "crearCuentaTest.Usuario_en_pagina_de_creacion()"
 });
 formatter.result({
-  "duration": 41962,
+  "duration": 92033,
   "status": "passed"
 });
 formatter.match({
@@ -1201,14 +601,14 @@ formatter.match({
   "location": "crearCuentaTest.Nombre_que_intenta_registrar_ya_existe(String,String,String,String)"
 });
 formatter.result({
-  "duration": 167846,
+  "duration": 82160,
   "status": "passed"
 });
 formatter.match({
   "location": "crearCuentaTest.Mensaje_de_error_a_la_creacion_cuenta_ya_existente()"
 });
 formatter.result({
-  "duration": 151741115,
+  "duration": 68174317,
   "status": "passed"
 });
 formatter.uri('cucumberJava\EliminarAmigo.feature');
@@ -1258,7 +658,7 @@ formatter.match({
   "location": "borrarAmigoTest.Usuario_conectado_para_borrar_a_otro_usuario()"
 });
 formatter.result({
-  "duration": 5417588935,
+  "duration": 4237071994,
   "status": "passed"
 });
 formatter.match({
@@ -1283,14 +683,14 @@ formatter.match({
   "location": "borrarAmigoTest.Eliminar_un_usuario_que_es_tu_amigo(String,String,String,String)"
 });
 formatter.result({
-  "duration": 2147529463,
+  "duration": 1326622675,
   "status": "passed"
 });
 formatter.match({
   "location": "borrarAmigoTest.Borrar_amigo_de_ambos_usuarios()"
 });
 formatter.result({
-  "duration": 6243853013,
+  "duration": 5184672715,
   "status": "passed"
 });
 formatter.scenario({
@@ -1332,7 +732,7 @@ formatter.match({
   "location": "borrarAmigoTest.Usuario_conectado_para_borrar_a_otro_usuario()"
 });
 formatter.result({
-  "duration": 5421593248,
+  "duration": 4176164765,
   "status": "passed"
 });
 formatter.match({
@@ -1357,14 +757,14 @@ formatter.match({
   "location": "borrarAmigoTest.Eliminar_un_usuario_que_no_es_tu_amigo(String,String,String,String)"
 });
 formatter.result({
-  "duration": 407620466,
+  "duration": 181001616,
   "status": "passed"
 });
 formatter.match({
   "location": "borrarAmigoTest.Mensaje_de_error_a_la_revocacion_de_usuario()"
 });
 formatter.result({
-  "duration": 5322667036,
+  "duration": 4203369188,
   "status": "passed"
 });
 formatter.uri('cucumberJava\Login.feature');
@@ -1412,7 +812,7 @@ formatter.match({
   "location": "loginTest.Usuario_en_pagina_de_login()"
 });
 formatter.result({
-  "duration": 15520416,
+  "duration": 16417154,
   "status": "passed"
 });
 formatter.match({
@@ -1429,14 +829,14 @@ formatter.match({
   "location": "loginTest.y_correctas(String,String)"
 });
 formatter.result({
-  "duration": 758831,
+  "duration": 838524,
   "status": "passed"
 });
 formatter.match({
   "location": "loginTest.Mensaje_de_bienvenida_al_login()"
 });
 formatter.result({
-  "duration": 77322808,
+  "duration": 60527459,
   "status": "passed"
 });
 formatter.scenario({
@@ -1476,7 +876,7 @@ formatter.match({
   "location": "loginTest.Usuario_en_pagina_de_login()"
 });
 formatter.result({
-  "duration": 98027,
+  "duration": 21510,
   "status": "passed"
 });
 formatter.match({
@@ -1493,14 +893,14 @@ formatter.match({
   "location": "loginTest.incorrecto_y_correcta(String,String)"
 });
 formatter.result({
-  "duration": 225675,
+  "duration": 57477,
   "status": "passed"
 });
 formatter.match({
   "location": "loginTest.Mensaje_de_error_al_login()"
 });
 formatter.result({
-  "duration": 92815720,
+  "duration": 80850556,
   "status": "passed"
 });
 formatter.scenario({
@@ -1540,7 +940,7 @@ formatter.match({
   "location": "loginTest.Usuario_en_pagina_de_login()"
 });
 formatter.result({
-  "duration": 42314,
+  "duration": 21863,
   "status": "passed"
 });
 formatter.match({
@@ -1557,140 +957,14 @@ formatter.match({
   "location": "loginTest.incorrecta_y_correcto(String,String)"
 });
 formatter.result({
-  "duration": 174898,
+  "duration": 57124,
   "status": "passed"
 });
 formatter.match({
   "location": "loginTest.Mensaje_de_error_al_login()"
 });
 formatter.result({
-  "duration": 105399546,
-  "status": "passed"
-});
-formatter.uri('cucumberJava\Publicar.feature');
-formatter.feature({
-  "line": 1,
-  "name": "Publicacion",
-  "description": "",
-  "id": "publicacion",
-  "keyword": "Feature"
-});
-formatter.scenario({
-  "line": 12,
-  "name": "Publicacion exitosa",
-  "description": "",
-  "id": "publicacion;publicacion-exitosa;;2",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 4,
-      "name": "@Scenario1"
-    }
-  ]
-});
-formatter.step({
-  "line": 6,
-  "name": "Usuario en pagina principal",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 7,
-  "name": "\"milhouse.milhouse\" Publicacion correcta",
-  "matchedColumns": [
-    0
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 8,
-  "name": "Mensaje de exito a la publicacion",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "publicarTest.Usuario_en_pagina_principal()"
-});
-formatter.result({
-  "duration": 2683059,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "milhouse.milhouse",
-      "offset": 1
-    }
-  ],
-  "location": "publicarTest.Publicacion_correcta(String)"
-});
-formatter.result({
-  "duration": 89904871,
-  "status": "passed"
-});
-formatter.match({
-  "location": "publicarTest.Mensaje_de_exito_a_la_publicacion()"
-});
-formatter.result({
-  "duration": 100892402,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 23,
-  "name": "Publicacion fallida",
-  "description": "",
-  "id": "publicacion;publicacion-fallida;;2",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 15,
-      "name": "@Scenario2"
-    }
-  ]
-});
-formatter.step({
-  "line": 17,
-  "name": "Usuario en pagina principal",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 18,
-  "name": "\"milhouse.milhouse\" Publicacion incorrecta",
-  "matchedColumns": [
-    0
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 19,
-  "name": "Mensaje de fallo a la publicacion",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "publicarTest.Usuario_en_pagina_principal()"
-});
-formatter.result({
-  "duration": 81102,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "milhouse.milhouse",
-      "offset": 1
-    }
-  ],
-  "location": "publicarTest.Publicacion_incorrecta(String)"
-});
-formatter.result({
-  "duration": 565597,
-  "status": "passed"
-});
-formatter.match({
-  "location": "publicarTest.Mensaje_de_fallo_a_la_publicacion()"
-});
-formatter.result({
-  "duration": 94812235,
+  "duration": 61875514,
   "status": "passed"
 });
 formatter.uri('cucumberJava\SolicitudesAceptar.feature');
@@ -1740,7 +1014,7 @@ formatter.match({
   "location": "solicitudAceptarTest.Usuario_conectado_para_aceptar()"
 });
 formatter.result({
-  "duration": 5320232924,
+  "duration": 4199639202,
   "status": "passed"
 });
 formatter.match({
@@ -1765,14 +1039,14 @@ formatter.match({
   "location": "solicitudAceptarTest.Acepta_solicitud_de_alguien_que_le_ha_mandado(String,String,String,String)"
 });
 formatter.result({
-  "duration": 1636073304,
+  "duration": 972825903,
   "status": "passed"
 });
 formatter.match({
   "location": "solicitudAceptarTest.Aceptar_como_amigo()"
 });
 formatter.result({
-  "duration": 6142246209,
+  "duration": 4748655471,
   "status": "passed"
 });
 formatter.scenario({
@@ -1814,7 +1088,7 @@ formatter.match({
   "location": "solicitudAceptarTest.Usuario_conectado_para_aceptar()"
 });
 formatter.result({
-  "duration": 5321003039,
+  "duration": 4140429121,
   "status": "passed"
 });
 formatter.match({
@@ -1839,14 +1113,14 @@ formatter.match({
   "location": "solicitudAceptarTest.Acepta_solicitud_de_alguien_que_no_le_ha_mandado(String,String,String,String)"
 });
 formatter.result({
-  "duration": 406392655,
+  "duration": 242806255,
   "status": "passed"
 });
 formatter.match({
   "location": "solicitudAceptarTest.Mensaje_de_error_a_la_aceptacion()"
 });
 formatter.result({
-  "duration": 5425053475,
+  "duration": 4296391738,
   "status": "passed"
 });
 formatter.uri('cucumberJava\SolicitudesEnvio.feature');
@@ -1896,7 +1170,7 @@ formatter.match({
   "location": "solicitudEnviarTest.Usuario_conectado_para_enviar_solicitud()"
 });
 formatter.result({
-  "duration": 5418329430,
+  "duration": 4256581954,
   "status": "passed"
 });
 formatter.match({
@@ -1921,14 +1195,14 @@ formatter.match({
   "location": "solicitudEnviarTest.Selecciona_otro_usuario_sin_ser_amigos_ni_tener_solicitudes_entre_ellos(String,String,String,String)"
 });
 formatter.result({
-  "duration": 304512574,
+  "duration": 215435750,
   "status": "passed"
 });
 formatter.match({
   "location": "solicitudEnviarTest.Envio_solicitud_al_segundo()"
 });
 formatter.result({
-  "duration": 5938585838,
+  "duration": 4868697319,
   "status": "passed"
 });
 formatter.scenario({
@@ -1970,7 +1244,7 @@ formatter.match({
   "location": "solicitudEnviarTest.Usuario_conectado_para_enviar_solicitud()"
 });
 formatter.result({
-  "duration": 5319679669,
+  "duration": 4360169975,
   "status": "passed"
 });
 formatter.match({
@@ -1995,14 +1269,14 @@ formatter.match({
   "location": "solicitudEnviarTest.Selecciona_a_otro_usuario_siendo_su_amigo(String,String,String,String)"
 });
 formatter.result({
-  "duration": 2147839765,
+  "duration": 1272985356,
   "status": "passed"
 });
 formatter.match({
   "location": "solicitudEnviarTest.No_envio_de_solicitud()"
 });
 formatter.result({
-  "duration": 6552308193,
+  "duration": 5121104637,
   "status": "passed"
 });
 formatter.scenario({
@@ -2044,7 +1318,7 @@ formatter.match({
   "location": "solicitudEnviarTest.Usuario_conectado_para_enviar_solicitud()"
 });
 formatter.result({
-  "duration": 6344938295,
+  "duration": 4695083387,
   "status": "passed"
 });
 formatter.match({
@@ -2069,14 +1343,14 @@ formatter.match({
   "location": "solicitudEnviarTest.Selecciona_a_otro_usuario_teniendo_solicitudes_pendientes_entre_ellos(String,String,String,String)"
 });
 formatter.result({
-  "duration": 1020941190,
+  "duration": 647129554,
   "status": "passed"
 });
 formatter.match({
   "location": "solicitudEnviarTest.Solicitud_ya_enviada()"
 });
 formatter.result({
-  "duration": 5425487897,
+  "duration": 4664493134,
   "status": "passed"
 });
 formatter.uri('cucumberJava\SolicitudesRechazo.feature');
@@ -2126,7 +1400,7 @@ formatter.match({
   "location": "solicitudRechazarTest.Usuario_conectado_para_rechazar()"
 });
 formatter.result({
-  "duration": 5422916266,
+  "duration": 4464468874,
   "status": "passed"
 });
 formatter.match({
@@ -2151,14 +1425,14 @@ formatter.match({
   "location": "solicitudRechazarTest.Rechazar_solicitud_de_alguien_que_le_ha_mandado(String,String,String,String)"
 });
 formatter.result({
-  "duration": 1431423139,
+  "duration": 927164788,
   "status": "passed"
 });
 formatter.match({
   "location": "solicitudRechazarTest.Rechazar_peticion_de_amistad()"
 });
 formatter.result({
-  "duration": 5630146174,
+  "duration": 4631520951,
   "status": "passed"
 });
 formatter.scenario({
@@ -2200,7 +1474,7 @@ formatter.match({
   "location": "solicitudRechazarTest.Usuario_conectado_para_rechazar()"
 });
 formatter.result({
-  "duration": 5730789276,
+  "duration": 4510208976,
   "status": "passed"
 });
 formatter.match({
@@ -2225,451 +1499,14 @@ formatter.match({
   "location": "solicitudRechazarTest.Rechazar_solicitud_de_alguien_que_no_le_ha_mandado(String,String,String,String)"
 });
 formatter.result({
-  "duration": 305290446,
+  "duration": 222811446,
   "status": "passed"
 });
 formatter.match({
   "location": "solicitudRechazarTest.Mensaje_de_error_al_rechazo_de_la_peticion()"
 });
 formatter.result({
-  "duration": 5937707118,
-  "status": "passed"
-});
-formatter.uri('cucumberJava\consultaMeGustas.feature');
-formatter.feature({
-  "line": 1,
-  "name": "Consultar Me gusta",
-  "description": "",
-  "id": "consultar-me-gusta",
-  "keyword": "Feature"
-});
-formatter.scenario({
-  "line": 11,
-  "name": "Usuario quiere saber quien le ha dado a me gusta",
-  "description": "",
-  "id": "consultar-me-gusta;usuario-quiere-saber-quien-le-ha-dado-a-me-gusta;;2",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 3,
-      "name": "@Scenario1"
-    }
-  ]
-});
-formatter.step({
-  "line": 5,
-  "name": "Usuario conectado consulta usuarios que han dado me gusta",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 6,
-  "name": "\"milhouse.milhouse\" Activacion correcta la consulta",
-  "matchedColumns": [
-    0
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 7,
-  "name": "Se muestra correctamente lo usuarios que han dado me gusta",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "consultaMeGustaTest.Usuario_conectado_consulta_usuarios_que_han_dado_me_gusta()"
-});
-formatter.result({
-  "duration": 97073918,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "milhouse.milhouse",
-      "offset": 1
-    }
-  ],
-  "location": "consultaMeGustaTest.Activacion_correcta_la_consulta(String)"
-});
-formatter.result({
-  "duration": 512855693,
-  "status": "passed"
-});
-formatter.match({
-  "location": "consultaMeGustaTest.Se_muestra_correctamente_lo_usuarios_que_han_dado_me_gusta()"
-});
-formatter.result({
-  "duration": 305547856,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 12,
-  "name": "Usuario quiere saber quien le ha dado a me gusta",
-  "description": "",
-  "id": "consultar-me-gusta;usuario-quiere-saber-quien-le-ha-dado-a-me-gusta;;3",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 3,
-      "name": "@Scenario1"
-    }
-  ]
-});
-formatter.step({
-  "line": 5,
-  "name": "Usuario conectado consulta usuarios que han dado me gusta",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 6,
-  "name": "\"miguel.miguel\" Activacion correcta la consulta",
-  "matchedColumns": [
-    0
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 7,
-  "name": "Se muestra correctamente lo usuarios que han dado me gusta",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "consultaMeGustaTest.Usuario_conectado_consulta_usuarios_que_han_dado_me_gusta()"
-});
-formatter.result({
-  "duration": 97225543,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "miguel.miguel",
-      "offset": 1
-    }
-  ],
-  "location": "consultaMeGustaTest.Activacion_correcta_la_consulta(String)"
-});
-formatter.result({
-  "duration": 512865919,
-  "status": "passed"
-});
-formatter.match({
-  "location": "consultaMeGustaTest.Se_muestra_correctamente_lo_usuarios_que_han_dado_me_gusta()"
-});
-formatter.result({
-  "duration": 303603529,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 13,
-  "name": "Usuario quiere saber quien le ha dado a me gusta",
-  "description": "",
-  "id": "consultar-me-gusta;usuario-quiere-saber-quien-le-ha-dado-a-me-gusta;;4",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 3,
-      "name": "@Scenario1"
-    }
-  ]
-});
-formatter.step({
-  "line": 5,
-  "name": "Usuario conectado consulta usuarios que han dado me gusta",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 6,
-  "name": "\"daniel.gomez\" Activacion correcta la consulta",
-  "matchedColumns": [
-    0
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 7,
-  "name": "Se muestra correctamente lo usuarios que han dado me gusta",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "consultaMeGustaTest.Usuario_conectado_consulta_usuarios_que_han_dado_me_gusta()"
-});
-formatter.result({
-  "duration": 97431118,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "daniel.gomez",
-      "offset": 1
-    }
-  ],
-  "location": "consultaMeGustaTest.Activacion_correcta_la_consulta(String)"
-});
-formatter.result({
-  "duration": 510510793,
-  "status": "passed"
-});
-formatter.match({
-  "location": "consultaMeGustaTest.Se_muestra_correctamente_lo_usuarios_que_han_dado_me_gusta()"
-});
-formatter.result({
-  "duration": 305322535,
-  "status": "passed"
-});
-formatter.uri('cucumberJava\editarPublicacionBD.feature');
-formatter.feature({
-  "line": 1,
-  "name": "Edicion de una publicacion en la BD",
-  "description": "",
-  "id": "edicion-de-una-publicacion-en-la-bd",
-  "keyword": "Feature"
-});
-formatter.scenario({
-  "line": 11,
-  "name": "Edicion correcta de publicacion",
-  "description": "",
-  "id": "edicion-de-una-publicacion-en-la-bd;edicion-correcta-de-publicacion;;2",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 3,
-      "name": "@Scenario1"
-    }
-  ]
-});
-formatter.step({
-  "line": 5,
-  "name": "El usuario quiere editar una publicacion",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 6,
-  "name": "\"milhouse.milhouse\" Edicion correcta",
-  "matchedColumns": [
-    0
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 7,
-  "name": "Mensaje de exito en la edicion de la publicacion",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "editarPublicacionBDTest.El_usuario_quiere_editar_una_publicacion()"
-});
-formatter.result({
-  "duration": 97721674,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "milhouse.milhouse",
-      "offset": 1
-    }
-  ],
-  "location": "editarPublicacionBDTest.Edicion_correcta(String)"
-});
-formatter.result({
-  "duration": 305115901,
-  "status": "passed"
-});
-formatter.match({
-  "location": "editarPublicacionBDTest.Mensaje_de_exito_en_la_edicion_de_la_publicacion()"
-});
-formatter.result({
-  "duration": 101382187,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 22,
-  "name": "Edicion incorrecta de publicacion",
-  "description": "",
-  "id": "edicion-de-una-publicacion-en-la-bd;edicion-incorrecta-de-publicacion;;2",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 14,
-      "name": "@Scenario2"
-    }
-  ]
-});
-formatter.step({
-  "line": 16,
-  "name": "El usuario quiere editar una publicacion",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 17,
-  "name": "\"milhouse.milhouse\" Edicion incorrecto",
-  "matchedColumns": [
-    0
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 18,
-  "name": "Mensaje de error en la edicion de la publicacion",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "editarPublicacionBDTest.El_usuario_quiere_editar_una_publicacion()"
-});
-formatter.result({
-  "duration": 99479115,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "milhouse.milhouse",
-      "offset": 1
-    }
-  ],
-  "location": "editarPublicacionBDTest.Edicion_incorrecto(String)"
-});
-formatter.result({
-  "duration": 100765107,
-  "status": "passed"
-});
-formatter.match({
-  "location": "editarPublicacionBDTest.Mensaje_de_error_en_la_edicion_de_la_publicacion()"
-});
-formatter.result({
-  "duration": 40903,
-  "status": "passed"
-});
-formatter.uri('cucumberJava\eliminarPublicacionBD.feature');
-formatter.feature({
-  "line": 1,
-  "name": "eliminar publicacion DB",
-  "description": "",
-  "id": "eliminar-publicacion-db",
-  "keyword": "Feature"
-});
-formatter.scenario({
-  "line": 11,
-  "name": "Eliminacion correcta de publicacion",
-  "description": "",
-  "id": "eliminar-publicacion-db;eliminacion-correcta-de-publicacion;;2",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 3,
-      "name": "@Scenario1"
-    }
-  ]
-});
-formatter.step({
-  "line": 5,
-  "name": "Usuario quiere eliminar una publiacion",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 6,
-  "name": "\"milhouse.milhouse\" Eliminacion correcta",
-  "matchedColumns": [
-    0
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 7,
-  "name": "Mensaje de exito en la eliminacion de publicacion",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "eliminarPublicacionBDTest.Usuario_quiere_eliminar_una_publiacion()"
-});
-formatter.result({
-  "duration": 101548269,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "milhouse.milhouse",
-      "offset": 1
-    }
-  ],
-  "location": "eliminarPublicacionBDTest.Eliminacion_correcta(String)"
-});
-formatter.result({
-  "duration": 408453699,
-  "status": "passed"
-});
-formatter.match({
-  "location": "eliminarPublicacionBDTest.Mensaje_de_exito_en_la_eliminacion_de_publicacion()"
-});
-formatter.result({
-  "duration": 101530990,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 22,
-  "name": "Eliminacion incorrecta de publicacion",
-  "description": "",
-  "id": "eliminar-publicacion-db;eliminacion-incorrecta-de-publicacion;;2",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 14,
-      "name": "@Scenario2"
-    }
-  ]
-});
-formatter.step({
-  "line": 16,
-  "name": "Usuario quiere eliminar una publiacion",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 17,
-  "name": "\"milhouse.milhouse\" Eliminacion incorrecta",
-  "matchedColumns": [
-    0
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 18,
-  "name": "Mensaje de fallo en la eliminacion de publicacion",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "eliminarPublicacionBDTest.Usuario_quiere_eliminar_una_publiacion()"
-});
-formatter.result({
-  "duration": 97336264,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "milhouse.milhouse",
-      "offset": 1
-    }
-  ],
-  "location": "eliminarPublicacionBDTest.Eliminacion_incorrecta(String)"
-});
-formatter.result({
-  "duration": 203983368,
-  "status": "passed"
-});
-formatter.match({
-  "location": "eliminarPublicacionBDTest.Mensaje_de_fallo_en_la_eliminacion_de_publicacion()"
-});
-formatter.result({
-  "duration": 101272875,
+  "duration": 4481776387,
   "status": "passed"
 });
 });

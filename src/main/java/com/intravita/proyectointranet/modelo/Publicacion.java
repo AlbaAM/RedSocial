@@ -26,6 +26,8 @@ public class Publicacion implements Comparable<Publicacion>{
 	final DateFormat formato=new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
 	private ArrayList<String> megustaUsuarios;	
 	private List<BsonValue> compartidopor;
+	private byte[] imagen;
+
 	
 	public Publicacion(Usuario usuario, String texto) {
 		this.usuario=usuario;
@@ -34,6 +36,8 @@ public class Publicacion implements Comparable<Publicacion>{
 		this.fecha=new Date().getTime();		
 		this.megustaUsuarios=null;
 		this.compartidopor=null;
+		this.imagen = null;
+
 	}
 	public Publicacion(Usuario usuario, String texto, String privacidad) {
 		this.usuario = usuario;
@@ -42,6 +46,8 @@ public class Publicacion implements Comparable<Publicacion>{
 		this.fecha=new Date().getTime();
 		this.megustaUsuarios=null;
 		this.compartidopor=null;
+		this.imagen = null;
+
 	}	
 	public Publicacion(Usuario usuario, String texto, String privacidad, long fecha) {
 		this.usuario = usuario;
@@ -49,12 +55,22 @@ public class Publicacion implements Comparable<Publicacion>{
 		this.privacidad=privacidad;
 		this.fecha=fecha;	
 		this.compartidopor=null;
+		this.imagen = null;
+
 		
 	}
 	public Publicacion() {
 		super();
 	}
-	
+	// Añadir opciones para la  imagen/////////////
+		public byte[] getImagen() {
+			return imagen;
+			}
+		public void setImagen(byte[] value) {
+				this.imagen = value;
+		}
+		////////////////////////////////////////////////////////
+
 	public Usuario getUsuario() {
 		return usuario;
 	}

@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -156,7 +156,7 @@ textarea {
 			
 			<div class="btn-group col-md-1 col-md-offset-6">
 				 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-				    <center><span class="glyphicon glyphicon-cog"></span>&nbsp;<strong>&nbsp;Ajustes&nbsp;</strong><span class="caret"></span></center>
+				    <span class="glyphicon glyphicon-cog"></span>&nbsp;<strong>&nbsp;Ajustes&nbsp;</strong><span class="caret"></span>
 				  </button>
 					<ul class="dropdown-menu" style="background:#337ab7;">
 						<li>
@@ -189,7 +189,7 @@ textarea {
 	</div>
 	
 	
-	 <form action="crearPublicacion" method="post" id="formlogin">    	
+	 <form action="crearPublicacion" method="post" id="formlogin" enctype="multipart/form-data">
     	
     	<div class="row">
 	 		<div class="col-md-1 col-md-offset-1">
@@ -207,8 +207,21 @@ textarea {
 		
 		<br/>
 		
+		<%--cambios para la imagen fotos  --%>
+		<script type="text/javascript" src="./cargarImagenes.js"></script>
 		<div class="row">
-			<div class="col-md-1 col-md-offset-8">
+		    <div class="col-md-3 col-md-offset-5">
+ 				<input class="btn btn-primary btn-block" type="file" id="rutaImagen" name="rutaImagen" accept="image/*" onchange="cargarArchivo(this)" title="Buscar imagen" value="imagen"/>
+ 			</div>
+ 			<input type="hidden" name="nombreImagen" value=""/>
+ 			<script>
+ 				
+				$(document).on('ready', function() {
+				    $("#rutaImagen").fileinput({showCaption: false});
+				});
+			</script>
+			<div class="col-md-1">
+			<%--cambios para la imagen  --%>
  				<button class="btn btn-primary btn-block login" formaction="crearPublicacionPrivada" type="submit" title="Publicaci&oacute;n Privada"><strong><span class="glyphicon glyphicon-tag"></span>&nbsp;Borrador</strong></button>
  			</div>	
  			<div class="col-md-1">
@@ -220,7 +233,7 @@ textarea {
 	<br/>
 	<div class="row">
 		<div class="col-md-3 col-md-offset-8">
-			<spam><em>${alerta}</em></spam>
+			<span><em>${alerta}</em></span>
 		</div>
 	</div>
 	<br/>
@@ -230,6 +243,9 @@ textarea {
 				 <div class="panel-body">
 					<form action="listarPublicacion" method="post">
 						<button class="btn btn-info btn-block login" type="submit" title="Actualizar Muro"><strong><span class="glyphicon glyphicon-list"></span>&nbsp;Mostrar Publicaciones</strong></button>
+					</form>
+					<form action="listarAllPublicacion" method="post">
+						<button class="btn btn-info btn-block login" type="submit"><strong><span class="glyphicon glyphicon-list"></span>&nbsp;Mostrar todas las publicaciones</strong></button>
 					</form>
 				</div>
 				${publicaciones}

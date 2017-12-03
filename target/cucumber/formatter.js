@@ -39,13 +39,13 @@ CucumberHTML.DOMFormatter = function(rootNode) {
     populate(stepElement, step, 'step');
 
     if (step.doc_string) {
-      var docString = $('.doc_string', $templates).clone();
+      docString = $('.doc_string', $templates).clone();
       docString.appendTo(stepElement);
       // TODO: use a syntax highlighter based on the content_type
       docString.text(step.doc_string.value);
     }
     if (step.rows) {
-      var dataTable = $('.data_table', $templates).clone();
+      dataTable = $('.data_table', $templates).clone();
       dataTable.appendTo(stepElement);
       var tBody = dataTable.find('tbody');
       $.each(step.rows, function(index, row) {
