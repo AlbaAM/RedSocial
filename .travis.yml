@@ -15,3 +15,8 @@ notifications:
  slack:
   rooms:
    - equipo1-redsocial:gHtgV5g6eQM5DkxGobKNoNIx#general
+<<<<<<< HEAD
+=======
+   
+   
+>>>>>>> branch 'herokuapp' of https://github.com/AlbaAM/RedSocial.git
