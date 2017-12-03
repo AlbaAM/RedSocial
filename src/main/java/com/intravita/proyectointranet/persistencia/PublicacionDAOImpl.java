@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.bson.BsonArray;
+import org.bson.BsonBinary;
 import org.bson.BsonDateTime;
 import org.bson.BsonDocument;
 import org.bson.BsonInt32;
@@ -35,7 +36,7 @@ public class PublicacionDAOImpl {
 	private final String date = "fecha";
 	private final String privacy = "privacidad";
 	private final String compartidopor= "compartidopor";
-	
+	private final String image="imagen";
 	private final String megustaUsuarios = "megustaUsuarios";
 	
 	public MongoCollection<BsonDocument> obtenerPublicaciones() {
@@ -71,6 +72,7 @@ public class PublicacionDAOImpl {
 		BsonDocument bso = new BsonDocument();
 		bso.append(author, new BsonString(publicacion.getUsuario().getNombre()));
 		bso.append(text, new BsonString(publicacion.getTexto()));
+		bso.append(image, new BsonBinary(publicacion.getImagen()));
 		bso.append(privacy, new BsonString(publicacion.getPrivacidad()));
 		bso.append(date, new BsonDateTime(publicacion.getFecha()));
 		bso.append(compartidopor, new BsonArray());
@@ -186,8 +188,18 @@ public class PublicacionDAOImpl {
 		String privacidad=aux.getString(privacy).getValue();
 		long fecha=aux.getDateTime(date).getValue();
 
-		
+		/*Imagen*/
+		byte[]imagenFinal = null;
+		try {
+		BsonValue imagen=aux.get(image);
+		BsonBinary image=imagen.asBinary();
+		imagenFinal=image.getData();
+		}catch(Exception e) {}
+		/*Imagen*/
 		Publicacion publicacion=new Publicacion(new Usuario(autor), texto, privacidad, fecha);
+		/*Imagen*/
+		publicacion.setImagen(imagenFinal);
+		/*Imagen*/
 		publicacion.setId(aux.getObjectId(ID).getValue().toString());
 		return publicacion;
 	}
@@ -219,8 +231,21 @@ public class PublicacionDAOImpl {
 			texto=aux.getString(text).getValue();
 			privacidad=aux.getString(privacy).getValue();
 			fecha=aux.getDateTime(date).getValue();
+			/*Imagen*/
+			byte[]imagenFinal = null;
+			try {
+			BsonValue imagen=aux.get(image);
+			BsonBinary image=imagen.asBinary();
+			imagenFinal=image.getData();
+			}catch(Exception e) {
+				System.out.println("error en: "+texto);
+			}
+			/*Imagen*/
 			publicacion=new Publicacion(new Usuario(autor), texto, privacidad, fecha);
 			publicacion.setId(aux.getObjectId(ID).getValue().toString());
+			/*Imagen*/
+			publicacion.setImagen(imagenFinal);
+			/*Imagen*/
 			lista.add(publicacion);
 		}
 		return lista;
@@ -252,8 +277,19 @@ public class PublicacionDAOImpl {
 			texto=aux.getString(text).getValue();
 			privacidad=aux.getString(privacy).getValue();
 			fecha=aux.getDateTime(date).getValue();
+			/*Imagen*/
+			byte[]imagenFinal = null;
+			try {
+			BsonValue imagen=aux.get(image);
+			BsonBinary image=imagen.asBinary();
+			imagenFinal=image.getData();
+			}catch(Exception e) {}
+			/*Imagen*/
 			publicacion=new Publicacion(new Usuario(autor), texto, privacidad, fecha);
 			publicacion.setId(aux.getObjectId(ID).getValue().toString());
+			/*Imagen*/
+			publicacion.setImagen(imagenFinal);
+			/*Imagen*/
 			lista.add(publicacion);
 		}
 		return lista;
@@ -354,10 +390,22 @@ public class PublicacionDAOImpl {
 			compartidopor=publicacion.getArray(this.compartidopor);
 			id=publicacion.getObjectId(ID).getValue().toString();
 
+			/*Imagen*/
+			byte[]imagenFinal = null;
+			try {
+			BsonValue imagen=publicacion.get(image);
+			BsonBinary image=imagen.asBinary();
+			imagenFinal=image.getData();
+			}catch(Exception e) {}
+			/*Imagen*/
+
 			aux=new Publicacion(usuario, texto, privacidad, fecha);
 
 			aux.setCompartidopor(compartidopor);
 			aux.setId(id);
+			/*Imagen*/
+			aux.setImagen(imagenFinal);
+			/*Imagen*/
 			megusta=usuariosMeGusta(aux);
 			aux.setMegustaUsuarios(megusta);
 			retorno.add(aux);

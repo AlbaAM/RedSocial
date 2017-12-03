@@ -662,6 +662,15 @@ public class UsuarioServlet {
 
 		Publicacion publicacion = new Publicacion(usuario, texto);
 
+        /*Crear la imagen*/
+		
+		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+		CommonsMultipartFile multipartFile = (CommonsMultipartFile) multipartRequest.getFile("rutaImagen");
+		byte[] imagen = multipartFile.getBytes();
+		publicacion.setImagen(imagen);
+		/*Crear la imagen*/
+
+		
 		if (publicacionDao.existe(publicacion)) {
 			model.addAttribute(alert, "Nombre de usuario no disponible");
 			return cadenaUrl += welcome;
@@ -697,6 +706,14 @@ public class UsuarioServlet {
 		}
 
 		Publicacion publicacion = new Publicacion(usuario, texto, "Privada");
+        /*Crear la imagen*/
+		
+		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+		CommonsMultipartFile multipartFile = (CommonsMultipartFile) multipartRequest.getFile("rutaImagen");
+		byte[] imagen = multipartFile.getBytes();
+		publicacion.setImagen(imagen);
+		/*Crear la imagen*/
+
 
 		if (publicacionDao.existe(publicacion)) {
 			model.addAttribute(alert, "Nombre de usuario no disponible");
@@ -707,6 +724,7 @@ public class UsuarioServlet {
 		Usuario usu = (Usuario) request.getSession().getAttribute(usuario_conect);
 		model.addAttribute("todoSolicitudes", usuarioDao.obtenerSolicitudes(usu).size());
 		listarPublicacion(request, model);
+		
 		cadenaUrl += welcome;
 		return cadenaUrl;
 	}
@@ -730,8 +748,16 @@ public class UsuarioServlet {
 			nombre = todas[i].getUsuario().getNombre();
 	  texto = texto+"<div class=\"panel panel-default\">\r\n" + 
 		  		"		<div class=\"panel-body\">\r\n" + 
-		  		"			<b> "+ nombre +" </b> \r\n" + 
-		  		"			<textarea name=\"txtIntroducirTexto\" placeholder=\"¿Qué tal el día?\" class=\"form-control\" rows=\"5\" id=\"comment\" disabled>"+ todas[i].getTexto()+"</textarea>\r\n" + 
+		  		"			<b> "+ nombre +" </b> \r\n";
+	  /* Opcion de la imagen*/
+		if(todas[i].getImagen()!= null) {
+			
+			texto += " <div  class=\"col-md-12\" align=\"center\">"
+					+ "<img src=\"data:image/gif;base64,"+DatatypeConverter.printBase64Binary(todas[i].getImagen())+"\"  class=\"img-responsive\">"
+							+ "</div>";
+		}  		
+		/* Opcion de la imagen*/
+		texto +="			<textarea name=\"txtIntroducirTexto\" placeholder=\"¿Qué tal el día?\" class=\"form-control\" rows=\"5\" id=\"comment\" disabled>"+ todas[i].getTexto()+"</textarea>\r\n" + 
 		  		"			<input name=\"txtIdPublicacion\" type=\"hidden\" class=\"form-control\" value=\""+todas[i].getId()+"\" id=\"usr\" placeholder=\"usuario\">" + 
 		  		
 				"			<div class=\"col-md-3 col-md-offset-9\">"+
@@ -847,8 +873,16 @@ public class UsuarioServlet {
 							/*Añadimos la linea imagenCodificada*/
 							"		<img src=\"data:image/gif;base64,"+imagenCodificada+"\" class=\"fotoPerfil img-thumbnail\" style=\"width:4%;\">"+ 
 							/*Añadimos la linea imagenCodificada*/
-							"			<b> "+ nombre +" </b> \r\n" +
-							"			<textarea name=\"txtIntroducirTexto\" placeholder=\"¿Qu&eacute; tal el d&iacute;a?\" class=\"form-control\" rows=\"5\" id=\"comment\" disabled>"+ todas[i].getTexto()+"</textarea>\r\n" + 
+							"			<b> "+ nombre +" </b> \r\n";
+					/* Opcion de la imagen*/
+					if(todas[i].getImagen()!= null) {
+						
+						texto += " <div  class=\"col-md-12\" align=\"center\">"
+								+ "<img src=\"data:image/gif;base64,"+DatatypeConverter.printBase64Binary(todas[i].getImagen())+"\"  class=\"img-responsive\">"
+										+ "</div>";
+					}  		
+					/* Opcion de la imagen*/
+					texto +="			<textarea name=\"txtIntroducirTexto\" placeholder=\"¿Qu&eacute; tal el d&iacute;a?\" class=\"form-control\" rows=\"5\" id=\"comment\" disabled>"+ todas[i].getTexto()+"</textarea>\r\n" + 
 							"			<input name=\"txtIdPublicacion\" type=\"hidden\" class=\"form-control\" value=\""+todas[i].getId()+"\" id=\"usr\" placeholder=\"usuario\">" + 
 							"<br>"+
 							"<div class=\"row\">\r\n" + 
@@ -928,9 +962,17 @@ public class UsuarioServlet {
 							"	<div class=\"panel-body\">\r\n" +
 							/*Añadimos la linea imagenCodificada*/
 							"<img src=\"data:image/gif;base64,"+imagenCodificada+"\" class=\"fotoPerfil img-thumbnail\" style=\"width:4%;\">"+ 
-							"		<b> "+nombre+"</b>\r\n" +
+							"		<b> "+nombre+"</b>\r\n";
 							/*Añadimos la linea imagenCodificada*/
-							"		<textarea name=\"txtIntroducirTexto\" class=\"form-control\" rows=\"5\" id=\"comment\" disabled>"+ todas[i].getTexto()+"</textarea>\r\n" + 
+					/* Opcion de la imagen*/
+					if(todas[i].getImagen()!= null) {
+						
+						texto += " <div  class=\"col-md-12\" align=\"center\">"
+								+ "<img src=\"data:image/gif;base64,"+DatatypeConverter.printBase64Binary(todas[i].getImagen())+"\"  class=\"img-responsive\">"
+										+ "</div>";
+					}  		
+					/* Opcion de la imagen*/
+					texto +="		<textarea name=\"txtIntroducirTexto\" class=\"form-control\" rows=\"5\" id=\"comment\" disabled>"+ todas[i].getTexto()+"</textarea>\r\n" + 
 							"		<br>\r\n" + 
 							"			<div class=\"row\">	"+
 							"				<div class=\"col-md-1 col-md-offset-9\">"+
@@ -1017,8 +1059,16 @@ public class UsuarioServlet {
 							/*Añadimos la linea imagenCodificada*/
 							"		<img src=\"data:image/gif;base64,"+imagenCodificada+"\" class=\"fotoPerfil img-thumbnail\" style=\"width:4%;\">"+ 
 							/*Añadimos la linea imagenCodificada*/
-							"			<b> "+ nombre +" </b> \r\n" +
-							"			<textarea name=\"txtIntroducirTexto\" placeholder=\"¿Qu&eacute; tal el d&iacute;a?\" class=\"form-control\" rows=\"5\" id=\"comment\" disabled>"+ todas.get(i).getTexto()+"</textarea>\r\n" + 
+							"			<b> "+ nombre +" </b> \r\n";
+					/* Opcion de la imagen*/
+					if(todas.get(i).getImagen()!= null) {
+						
+						texto += " <div  class=\"col-md-12\" align=\"center\">"
+								+ "<img src=\"data:image/gif;base64,"+DatatypeConverter.printBase64Binary(todas.get(i).getImagen())+"\"  class=\"img-responsive\">"
+										+ "</div>";
+					}  		
+					/* Opcion de la imagen*/
+					texto +="			<textarea name=\"txtIntroducirTexto\" placeholder=\"¿Qu&eacute; tal el d&iacute;a?\" class=\"form-control\" rows=\"5\" id=\"comment\" disabled>"+ todas.get(i).getTexto()+"</textarea>\r\n" + 
 							"			<input name=\"txtIdPublicacion\" type=\"hidden\" class=\"form-control\" value=\""+todas.get(i).getId()+"\" id=\"usr\" placeholder=\"usuario\">" + 
 							"<br>"+
 							"<div class=\"row\">\r\n" + 
@@ -1098,9 +1148,17 @@ public class UsuarioServlet {
 							"	<div class=\"panel-body\">\r\n" +
 							/*Añadimos la linea imagenCodificada*/
 							"<img src=\"data:image/gif;base64,"+imagenCodificada+"\" class=\"fotoPerfil img-thumbnail\" style=\"width:4%;\">"+ 
-							"		<b> "+nombre+"</b>\r\n" +
+							"		<b> "+nombre+"</b>\r\n";
 							/*Añadimos la linea imagenCodificada*/
-							"		<textarea name=\"txtIntroducirTexto\" class=\"form-control\" rows=\"5\" id=\"comment\" disabled>"+ todas.get(i).getTexto()+"</textarea>\r\n" + 
+					/* Opcion de la imagen*/
+					if(todas.get(i).getImagen()!= null) {
+						
+						texto += " <div  class=\"col-md-12\" align=\"center\">"
+								+ "<img src=\"data:image/gif;base64,"+DatatypeConverter.printBase64Binary(todas.get(i).getImagen())+"\"  class=\"img-responsive\">"
+										+ "</div>";
+					}  		
+					/* Opcion de la imagen*/
+					texto +="		<textarea name=\"txtIntroducirTexto\" class=\"form-control\" rows=\"5\" id=\"comment\" disabled>"+ todas.get(i).getTexto()+"</textarea>\r\n" + 
 							"		<br>\r\n" + 
 							"			<div class=\"row\">	"+
 							"				<div class=\"col-md-1 col-md-offset-9\">"+

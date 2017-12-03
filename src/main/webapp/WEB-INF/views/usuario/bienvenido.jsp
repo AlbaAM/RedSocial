@@ -189,7 +189,7 @@ textarea {
 	</div>
 	
 	
-	 <form action="crearPublicacion" method="post" id="formlogin">    	
+	 <form action="crearPublicacion" method="post" id="formlogin" enctype="multipart/form-data">
     	
     	<div class="row">
 	 		<div class="col-md-1 col-md-offset-1">
@@ -207,8 +207,21 @@ textarea {
 		
 		<br/>
 		
+		<%--cambios para la imagen fotos  --%>
+		<script type="text/javascript" src="./cargarImagenes.js"></script>
 		<div class="row">
-			<div class="col-md-1 col-md-offset-8">
+		    <div class="col-md-3 col-md-offset-5">
+ 				<input class="btn btn-primary btn-block" type="file" id="rutaImagen" name="rutaImagen" accept="image/*" onchange="cargarArchivo(this)" title="Buscar imagen" value="imagen"/>
+ 			</div>
+ 			<input type="hidden" name="nombreImagen" value=""/>
+ 			<script>
+ 				
+				$(document).on('ready', function() {
+				    $("#rutaImagen").fileinput({showCaption: false});
+				});
+			</script>
+			<div class="col-md-1">
+			<%--cambios para la imagen  --%>
  				<button class="btn btn-primary btn-block login" formaction="crearPublicacionPrivada" type="submit" title="Publicaci&oacute;n Privada"><strong><span class="glyphicon glyphicon-tag"></span>&nbsp;Borrador</strong></button>
  			</div>	
  			<div class="col-md-1">
