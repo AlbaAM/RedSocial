@@ -492,8 +492,8 @@ public class UsuarioServlet {
 	 * @method funcion del administrador de promocionar un usuario a admin
 	 *
 	 */
-	@RequestMapping(value = "/promover", method = RequestMethod.POST)
-	public String promover(HttpServletRequest request, Model model) throws Exception {
+	@RequestMapping(value = "/promocionar", method = RequestMethod.POST)
+	public String promocionar(HttpServletRequest request, Model model) throws Exception {
 		String cadenaUrl = usuarioServ;
 		String nombre = request.getParameter("txtNombre");
 		Usuario usuario = new Usuario();
