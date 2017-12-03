@@ -23,6 +23,7 @@ import com.intravita.proyectointranet.modelo.Publicacion;
 import com.intravita.proyectointranet.modelo.Usuario;
 import com.intravita.proyectointranet.persistencia.AdministradorDAOImpl;
 import com.intravita.proyectointranet.persistencia.PublicacionDAOImpl;
+import com.intravita.proyectointranet.persistencia.UsuarioDAO;
 import com.intravita.proyectointranet.persistencia.UsuarioDAOImpl;
 import com.intravita.proyectointranet.utlidades.utilidades;
 
@@ -127,6 +128,7 @@ public class UsuarioServlet {
 	
 	@RequestMapping(value = "/irAdmin", method = RequestMethod.GET)
 	public ModelAndView irAdmin(HttpServletRequest request, Model model) {
+		
 		listarUsuario(model);
 		return cambiarVista("usuario/inicioAdmin");
 	}
@@ -149,6 +151,8 @@ public class UsuarioServlet {
 	
 	@RequestMapping(value = "/irBienvenido", method = RequestMethod.GET)
 	public ModelAndView irBienvenido(HttpServletRequest request, Model model) {
+		Usuario usuario = (Usuario) request.getSession().getAttribute(usuario_conect);
+		model.addAttribute("todoSolicitudes", usuarioDao.obtenerSolicitudes(usuario).size());
 		listarPublicacion(request,model);
 		return cambiarVista("usuario/bienvenido");
 	}
@@ -157,6 +161,7 @@ public class UsuarioServlet {
 	
 	@RequestMapping(value = "/irVistaAmigos", method = RequestMethod.GET)
 	public ModelAndView irVistaAmigos(HttpServletRequest request, Model model) {
+		
 		mostrarNotificaciones(request, model);
 		return cambiarVista("usuario/vistaAmigos");
 	}
@@ -194,6 +199,8 @@ public class UsuarioServlet {
 			Usuario usuario=usuarioDao.selectNombre(admin.getNombre());
 			usuario = usuarioDao.selectNombreImagen(admin.getNombre());
 			request.getSession().setAttribute("usuarioConectado", usuario);
+			Usuario usu = (Usuario) request.getSession().getAttribute(usuario_conect);
+			model.addAttribute("todoSolicitudes", usuarioDao.obtenerSolicitudes(usu).size());
 			listarPublicacion(request, model);
 			return cadenaUrl+=welcome;
 		}
@@ -239,7 +246,7 @@ public class UsuarioServlet {
 		String cadenaUrl = usuarioServ;
 		String nombre = request.getParameter("txtUsuarioNombre");
 		String clave = request.getParameter("txtUsuarioClave");
-		if (clave.equals("") || nombre.equals("")) {
+		if (clave.length()==0 || nombre.length()==0) {
 			model.addAttribute(alert, "Por favor rellene los campos");
 			return cadenaUrl += "login";
 		}
@@ -256,6 +263,7 @@ public class UsuarioServlet {
 		Usuario usuario = new Usuario();
 		usuario.setNombre(nombre);
 		usuario.setClave(clave);
+		
 
 		if (usuarioDao.login(usuario) && request.getSession().getAttribute(usuario_conect) == null) {
 			usuario = usuarioDao.selectNombreImagen(nombre);
@@ -263,10 +271,13 @@ public class UsuarioServlet {
 			String base64Encoded = DatatypeConverter.printBase64Binary(usuario.getImagen());
 			
 			model.addAttribute("imagen", base64Encoded);
+			Usuario usu = (Usuario) request.getSession().getAttribute(usuario_conect);
+			model.addAttribute("todoSolicitudes", usuarioDao.obtenerSolicitudes(usu).size());
 			listarPublicacion(request, model);
 			return cadenaUrl += welcome;
 		}
-
+		
+		
 		model.addAttribute("alerta", "Usuario y/o clave incorrectos");
 		return cadenaUrl += "login";
 	}
@@ -481,8 +492,8 @@ public class UsuarioServlet {
 	 * @method funcion del administrador de promocionar un usuario a admin
 	 *
 	 */
-	@RequestMapping(value = "/promover", method = RequestMethod.POST)
-	public String promover(HttpServletRequest request, Model model) throws Exception {
+	@RequestMapping(value = "/promocionar", method = RequestMethod.POST)
+	public String promocionar(HttpServletRequest request, Model model) throws Exception {
 		String cadenaUrl = usuarioServ;
 		String nombre = request.getParameter("txtNombre");
 		Usuario usuario = new Usuario();
@@ -564,6 +575,8 @@ public class UsuarioServlet {
 		String cadenaUrl = usuarioServ;
 		String id = request.getParameter("txtIdPublicacion");
 		publicacionDao.remove(id);
+		Usuario usuario = (Usuario) request.getSession().getAttribute(usuario_conect);
+		model.addAttribute("todoSolicitudes", usuarioDao.obtenerSolicitudes(usuario).size());
 		listarPublicacion(request, model);
 		cadenaUrl += welcome;
 		return cadenaUrl;
@@ -581,6 +594,8 @@ public class UsuarioServlet {
 		String texto = request.getParameter("txtIntroducirTexto");
 		String id = request.getParameter("txtIdPublicacion");
 		publicacionDao.update(id, texto);
+		Usuario usuario = (Usuario) request.getSession().getAttribute(usuario_conect);
+		model.addAttribute("todoSolicitudes", usuarioDao.obtenerSolicitudes(usuario).size());
 		listarPublicacion(request, model);
 		cadenaUrl += welcome;
 		return cadenaUrl;
@@ -652,6 +667,8 @@ public class UsuarioServlet {
 			return cadenaUrl += welcome;
 		}
 		publicacionDao.insert(publicacion);
+		Usuario usu = (Usuario) request.getSession().getAttribute(usuario_conect);
+		model.addAttribute("todoSolicitudes", usuarioDao.obtenerSolicitudes(usu).size());
 		listarPublicacion(request, model);
 		cadenaUrl += welcome;
 		return cadenaUrl;
@@ -687,13 +704,12 @@ public class UsuarioServlet {
 			return cadenaUrl;
 		}
 		publicacionDao.insert(publicacion);
+		Usuario usu = (Usuario) request.getSession().getAttribute(usuario_conect);
+		model.addAttribute("todoSolicitudes", usuarioDao.obtenerSolicitudes(usu).size());
 		listarPublicacion(request, model);
 		cadenaUrl += welcome;
 		return cadenaUrl;
 	}
- 
-	
-	
 	
  /***
  /***

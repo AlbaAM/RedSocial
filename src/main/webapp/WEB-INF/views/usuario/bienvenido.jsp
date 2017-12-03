@@ -180,10 +180,10 @@ textarea {
 						</li>
 						<li>
 							<form action="irVistaAmigos" method="GET">
-								<button type="submit" class="boton btn-default"><span class="glyphicon glyphicon-user"></span>&nbsp;Amigos</button>
+								<button type="submit" class="boton btn-default"><span class="glyphicon glyphicon-user"></span><span class="label label-danger notifications">
+                     ${todoSolicitudes}</span>&nbsp;Amigos</button>
 							</form>
 						</li>
-						
 				</ul>
 			</div>					
 	</div>
