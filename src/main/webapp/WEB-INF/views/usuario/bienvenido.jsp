@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -156,7 +156,7 @@ textarea {
 			
 			<div class="btn-group col-md-1 col-md-offset-6">
 				 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-				    <center><span class="glyphicon glyphicon-cog"></span>&nbsp;<strong>&nbsp;Ajustes&nbsp;</strong><span class="caret"></span></center>
+				    <span class="glyphicon glyphicon-cog"></span>&nbsp;<strong>&nbsp;Ajustes&nbsp;</strong><span class="caret"></span>
 				  </button>
 					<ul class="dropdown-menu" style="background:#337ab7;">
 						<li>
@@ -220,7 +220,7 @@ textarea {
 	<br/>
 	<div class="row">
 		<div class="col-md-3 col-md-offset-8">
-			<spam><em>${alerta}</em></spam>
+			<span><em>${alerta}</em></span>
 		</div>
 	</div>
 	<br/>
@@ -230,6 +230,9 @@ textarea {
 				 <div class="panel-body">
 					<form action="listarPublicacion" method="post">
 						<button class="btn btn-info btn-block login" type="submit" title="Actualizar Muro"><strong><span class="glyphicon glyphicon-list"></span>&nbsp;Mostrar Publicaciones</strong></button>
+					</form>
+					<form action="listarAllPublicacion" method="post">
+						<button class="btn btn-info btn-block login" type="submit"><strong><span class="glyphicon glyphicon-list"></span>&nbsp;Mostrar todas las publicaciones</strong></button>
 					</form>
 				</div>
 				${publicaciones}
