@@ -97,6 +97,7 @@
  	<jsp:useBean id="administradorConectado" scope="session" class="com.intravita.proyectointranet.modelo.Administrador"></jsp:useBean>
 	
 		<div class="row bg-primary">
+		<%-- registro --%>
 			<div class="col-md-5 col-md-offset-1">
 				<img src="http://i65.tinypic.com/2dvizyh.png" style="width:30%;">
 			</div>
@@ -119,6 +120,7 @@
 		</div>
 	
 	<div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<%-- funcionalidad efectiva del registro --%>
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">

@@ -50,7 +50,7 @@ public class utilidades {
 	
 	
 	public static void credencialesValidas(String nombre, String email, String pwd1, String pwd2, String respuesta) throws Exception {
-		if (nombre.equals("") || email.equals("") || pwd1.equals("") || pwd2.equals("") || respuesta.equals(""))
+		if (nombre.length()==0 || email.length()==0 || pwd1.length()==0 || pwd2.length()==0 || respuesta.length()==0)
 			throw new Exception("Por favor rellene todos los campos");
 		comprobacionNombre(nombre);
 
@@ -141,7 +141,7 @@ public class utilidades {
 	
 	
 	public static void publicacionValida(String nombre, String texto) throws Exception {
-		if (nombre.equals("") || texto.equals(""))
+		if (nombre.length()==0 || texto.length()==0)
 			throw new Exception("La publicación está vacía, escribe algo");
 
 	}
@@ -293,18 +293,18 @@ public class utilidades {
 	
 	
 	
-	public static String buscadorUsuario(Usuario busca, String filtro) {
+	public static StringBuilder buscadorUsuario(Usuario busca, String filtro) {
 		List<Usuario> coincidencias = usuarioDao.buscador(filtro);
-		String retorno = "";
+		StringBuilder retorno =new StringBuilder("");
 		Iterator<Usuario> it = coincidencias.iterator();
 		if (!it.hasNext())
-			return "No se encontraron resultados";
+			return new StringBuilder("No se encontraron resultados");
 		Usuario aux;
 		while (it.hasNext()) {
 			aux = it.next();
 			if (!aux.getNombre().equals(busca.getNombre())) {
 				if (!comprobarAmistad(busca, aux) && !comprobarAmistad(busca, aux)) {
-					retorno+="		<form action=\"enviarSolicitud\" method=\"POST\">	\r\n" + 
+					retorno.append("		<form action=\"enviarSolicitud\" method=\"POST\">	\r\n" + 
 							"			<div class=\"row\">\r\n" + 
 							"        		<div class=\"col-md-6\">\r\n" +
 							"					<input name=\"noSirve\" class=\"form-control\" value=\""+aux.getNombre()+"\" id=\"usr\" placeholder=\"usuario\" disabled>"+ 
@@ -317,9 +317,9 @@ public class utilidades {
 							"					<br>\r\n" + 
 							"				</div>\r\n" +
 							"			</div>\r\n" +
-							"		</form>";
+							"		</form>");
 				}else {
-					retorno+="		<form action=\"eliminarAmigo\" method=\"POST\">	\r\n" + 
+					retorno.append("		<form action=\"eliminarAmigo\" method=\"POST\">	\r\n" + 
 							"			<div class=\"row\">\r\n" + 
 							"        		<div class=\"col-md-6\">\r\n" +
 							"					<input name=\"noSirve\" class=\"form-control\" value=\""+aux.getNombre()+"\" id=\"usr\" placeholder=\"usuario\" disabled>"+ 
@@ -332,7 +332,7 @@ public class utilidades {
 							"					<br>\r\n" + 
 							"				</div>\r\n" +
 							"			</div>\r\n" +
-							"		</form>";
+							"		</form>");
 				}
 			}
 		}
@@ -347,16 +347,16 @@ public class utilidades {
 	 *            (solo el nombre)
 	 * @return devuelve las peticiones de amistad pendientes
 	 */
-	public static String mostrarNotificaciones(Usuario usuario) {
+	public static StringBuilder mostrarNotificaciones(Usuario usuario) {
 		List<BsonValue> notificacionesPendientes = usuarioDao.obtenerSolicitudes(usuario);
 		Iterator<BsonValue> it = notificacionesPendientes.iterator();
 		BsonString aux;
-		String retorno = "";
+		StringBuilder retorno = new StringBuilder("");
 		if (!it.hasNext())
-			return "No tienes notificaciones pendientes";
+			return new StringBuilder("No tienes notificaciones pendientes");
 		while (it.hasNext()) {
 			aux = it.next().asString();
-			retorno+="    <form action=\"aceptarSolicitud\" method=\"POST\">\r\n" +
+			retorno.append("    <form action=\"aceptarSolicitud\" method=\"POST\">\r\n" +
 					  "		<br/>	"+
 			          "      <div class=\"row\">\r\n" + 
 			          "        <div class=\"col-md-6\">\r\n" +
@@ -374,7 +374,7 @@ public class utilidades {
 			          "				</button>\r\n" +
 			          "			<br>\r\n" +
 			          "      </div></div>\r\n" +  
-			          "    </form>";
+			          "    </form>");
 		}
 		return retorno;
 	}
@@ -385,14 +385,14 @@ public class utilidades {
 	 * 
 	 * @return String html para mostrar a los usuarios/administradores con sus botones
 	 */
-	public static String listarUsuarios() {
+	public static StringBuilder listarUsuarios() {
 		List<Usuario> usuarios = usuarioDao.list();
 		Iterator<Usuario> it = usuarios.iterator();
 		Usuario aux;
-		String texto = "";
+		StringBuilder texto =new StringBuilder("");
 		while (it.hasNext()) {
 			aux = it.next();
-			texto+="<form action=\"borrar\" method=\"POST\">\r\n" + 
+			texto.append("<form action=\"borrar\" method=\"POST\">\r\n" + 
 					"	<div class=\"row\">\r\n" + 
 					"		<div class=\"col-md-6\">\r\n" + 
 					"			<input name=\"noSirve\" type=\"text\" class=\"form-control\" value=\""+ aux.getNombre()+"\" id=\"usr\" placeholder=\"usuario\" disabled>\r\n" + 
@@ -408,21 +408,21 @@ public class utilidades {
 					"			<button class=\"btn btn-danger btn-block login\" type=\"submit\" title=\"Eliminar Usuario\"><strong><span class=\"glyphicon glyphicon-trash\"></span></strong></button>\r\n" +  
 					"		</div></div>\r\n" + 
 					"		<br>\r\n" +
-					"</form>	";
+					"</form>	");
 		}
 		return texto;
 	}
 	
 	
 	
-	public static String listarAdministradores() {
+	public static StringBuilder listarAdministradores() {
 		List<Administrador> administradores = administradorDao.list();
 		Iterator<Administrador> it = administradores.iterator();
 		Administrador aux;
-		String texto = "";
+		StringBuilder texto =new StringBuilder("");
 		while (it.hasNext()) {
 			aux = it.next();
-			texto+="<form action=\"borrar\" method=\"POST\">\r\n" + 
+			texto.append("<form action=\"borrar\" method=\"POST\">\r\n" + 
 					"	<div class=\"row\">\r\n" + 
 					"		<div class=\"col-md-6\">\r\n" + 
 					"			<input name=\"noSirve\" type=\"text\" class=\"form-control\" value=\""+ aux.getNombre()+"\" id=\"usr\" placeholder=\"usuario\" disabled>\r\n" + 
@@ -435,7 +435,7 @@ public class utilidades {
 					"			<button class=\"btn btn-danger btn-block login\" type=\"submit\" title=\"Eliminar Administrador\"><strong><span class=\"glyphicon glyphicon-trash\"></span></strong></button>\r\n" +  
 					"		</div></div>\r\n" + 
 					"		<br>\r\n" +
-					"</form>	";
+					"</form>	");
 		}
 		return texto;		
 	}

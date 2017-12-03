@@ -199,6 +199,8 @@ public class UsuarioServlet {
 			Usuario usuario=usuarioDao.selectNombre(admin.getNombre());
 			usuario = usuarioDao.selectNombreImagen(admin.getNombre());
 			request.getSession().setAttribute("usuarioConectado", usuario);
+			Usuario usu = (Usuario) request.getSession().getAttribute(usuario_conect);
+			model.addAttribute("todoSolicitudes", usuarioDao.obtenerSolicitudes(usu).size());
 			listarPublicacion(request, model);
 			return cadenaUrl+=welcome;
 		}
@@ -244,7 +246,7 @@ public class UsuarioServlet {
 		String cadenaUrl = usuarioServ;
 		String nombre = request.getParameter("txtUsuarioNombre");
 		String clave = request.getParameter("txtUsuarioClave");
-		if (clave.equals("") || nombre.equals("")) {
+		if (clave.length()==0 || nombre.length()==0) {
 			model.addAttribute(alert, "Por favor rellene los campos");
 			return cadenaUrl += "login";
 		}
@@ -573,6 +575,8 @@ public class UsuarioServlet {
 		String cadenaUrl = usuarioServ;
 		String id = request.getParameter("txtIdPublicacion");
 		publicacionDao.remove(id);
+		Usuario usuario = (Usuario) request.getSession().getAttribute(usuario_conect);
+		model.addAttribute("todoSolicitudes", usuarioDao.obtenerSolicitudes(usuario).size());
 		listarPublicacion(request, model);
 		cadenaUrl += welcome;
 		return cadenaUrl;
@@ -590,6 +594,8 @@ public class UsuarioServlet {
 		String texto = request.getParameter("txtIntroducirTexto");
 		String id = request.getParameter("txtIdPublicacion");
 		publicacionDao.update(id, texto);
+		Usuario usuario = (Usuario) request.getSession().getAttribute(usuario_conect);
+		model.addAttribute("todoSolicitudes", usuarioDao.obtenerSolicitudes(usuario).size());
 		listarPublicacion(request, model);
 		cadenaUrl += welcome;
 		return cadenaUrl;
@@ -661,6 +667,8 @@ public class UsuarioServlet {
 			return cadenaUrl += welcome;
 		}
 		publicacionDao.insert(publicacion);
+		Usuario usu = (Usuario) request.getSession().getAttribute(usuario_conect);
+		model.addAttribute("todoSolicitudes", usuarioDao.obtenerSolicitudes(usu).size());
 		listarPublicacion(request, model);
 		cadenaUrl += welcome;
 		return cadenaUrl;
@@ -696,6 +704,8 @@ public class UsuarioServlet {
 			return cadenaUrl;
 		}
 		publicacionDao.insert(publicacion);
+		Usuario usu = (Usuario) request.getSession().getAttribute(usuario_conect);
+		model.addAttribute("todoSolicitudes", usuarioDao.obtenerSolicitudes(usu).size());
 		listarPublicacion(request, model);
 		cadenaUrl += welcome;
 		return cadenaUrl;
