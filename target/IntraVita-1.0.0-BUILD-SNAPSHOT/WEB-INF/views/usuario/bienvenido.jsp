@@ -79,6 +79,7 @@ body{
 	 	<p>El email es: <jsp:getProperty name="usuarioConectado" property="email"/></p>
 	-->
 		<div class="row bg-primary">
+		<%-- funcionalidad bienvenido --%>
 			<div class="col-md-5 col-md-offset-1">
 				<img src="http://i65.tinypic.com/2dvizyh.png" style="width:30%;">
 			</div>
@@ -93,6 +94,7 @@ body{
 		</div>
 	
 	<div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<%-- introduccion --%>
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -139,6 +141,7 @@ body{
 		<br/>
 			
 			<div class="btn-group col-md-1 col-md-offset-6">
+			<%-- menu --%>
 				 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 				    <center><span class="glyphicon glyphicon-cog"></span>&nbsp;<strong>&nbsp;Ajustes&nbsp;</strong><span class="caret"></span></center>
 				  </button>
@@ -174,6 +177,7 @@ body{
 	
 	
 	 <form action="crearPublicacion" method="post" id="formlogin">
+	 <%-- crear publicaciones --%>
     	<div class="row">
 	 		<div class="col-md-8 col-md-offset-2">
 			  <label for="comment">Realizar publicaci&oacute;n</label>
