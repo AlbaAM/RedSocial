@@ -159,14 +159,14 @@
 			<div class="col-md-6 col-md-offset-3">
 				<label for="pwd" style="color: white; font-size: 15px">Contraseña:</label>
 				<input type="password" class="form-control" id="pwd"
-					name="txtUsuarioClave" placeholder="password">
+					name="txtUsuarioClave" placeholder="password" autocomplete="off">
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				<label for="pwd1" style="color: white; font-size: 15px">Confirmar
 					Contraseña:</label> <input type="password" class="form-control" id="pwd1"
-					name="txtUsuarioClave1" placeholder="confirmacion password">
+					name="txtUsuarioClave1" placeholder="confirmacion password" autocomplete="off">
 			</div>
 		</div>
 		
