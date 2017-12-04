@@ -89,7 +89,7 @@ textarea {
    
    // Set expiry date after 60 seconds for both the cookies
    cookie.setMaxAge(60); 
-   
+   cookie.setSecure(true);
    // Add both the cookies in the response header.
    response.addCookie(cookie);
 %>
